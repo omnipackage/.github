@@ -1,0 +1,1 @@
+![Logo](/profile/main_logo.png)
