@@ -2,7 +2,7 @@
 
  OmniPackage combines CI with repositories and set of tools to simplify the process of creating and distributing your own RPM and DEB packages for many distros easily using native package managers. And it is open source.
  
- [Homepage](https://docs.omnipackage.org)
+ [Homepage](https://omnipackage.org)
 
  [Documentation](https://docs.omnipackage.org)
  
