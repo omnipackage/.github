@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ site.data.links.getting_started }}">Getting started</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ site.data.links.sign_up }}">Sign up</a>
+        </li>
+      </ul>
+
+      <span class="navbar-text">
+        <div class="d-inline-flex me-3">
+          <a class="nav-link" href="{{ site.data.links.github }}" target="_blank">
+            <i class="bi bi-github opacity-50 me-2"></i>
+          </a>
+        </div>
+        <div class="d-inline-flex me-3">
+          {% include theme_selector.html %}
+        </div>
+      </span>
+    </div>
+  </div>
+</nav>
