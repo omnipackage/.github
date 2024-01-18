@@ -16,7 +16,11 @@
 
   <body>
     <div class="container">
-      {% include theme_selector.html %}
+      <div class="d-flex flex-row-reverse">
+        <div class="">
+          {% include theme_selector.html %}
+        </div>
+      </div>
       {{ content }}
     </div>
 
