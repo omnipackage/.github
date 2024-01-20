@@ -26,8 +26,10 @@
 #  Google search results) and in your feed.xml site description.
 #baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://omnipackage.org" # the base hostname & protocol for your site, e.g. http://example.com
-#twitter_username: jekyllrb
-#github_username:  jekyll
+docs_url: "https://docs.omnipackage.org"
+github_url: "https://github.com/omnipackage"
+getting_started_url: "https://docs.omnipackage.org/getting_started/"
+sign_up_url: "https://web.omnipackage.org"
 
 # Build settings
 #theme: minima
