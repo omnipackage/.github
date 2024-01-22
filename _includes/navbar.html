@@ -5,10 +5,6 @@
       <img src="/favicon-32x32.png" alt="logo">
     </a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
         <li class="nav-item me-3">
@@ -20,18 +16,24 @@
         <li class="nav-item me-3">
           <a class="nav-link" href="{{ site.sign_up_url }}" target="_blank">Sign up</a>
         </li>
-        <li class="nav-item">
-          {% include theme_selector.html %}
-        </li>
-      </ul>
 
-      <span class="navbar-text">
-        <div class="d-inline-flex me-3">
-          <a class="nav-link opacity-50" href="{{ site.github_url }}" target="_blank">
-            <i class="bi bi-github me-2"></i>
-          </a>
-        </div>
-      </span>
+      </ul>
     </div>
+
+    <span class="navbar-text">
+      <div class="d-inline-flex me-3">
+        {% include theme_selector.html %}
+      </div>
+
+      <div class="d-inline-flex me-3">
+        <a class="nav-link opacity-50" href="{{ site.github_url }}" target="_blank">
+          <i class="bi bi-github me-2"></i>
+        </a>
+      </div>
+    </span>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
   </div>
 </nav>
