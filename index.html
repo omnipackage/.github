@@ -15,3 +15,20 @@ title: Linux packaging made easy
     <a href="/about" class="btn btn-lg btn-link">Learn more</a>
   </div>
 </div>
+
+<div class="p-5 mb-4">
+  <h2>What it does</h2>
+  <p>Helps you create RPM spec-file and set of files for DEB. The files are actually templates to support multiple distros at once</p>
+  <p>Spawns <code>rpmbuild</code> and <code>dpkg-buildpackage</code> inside containers to build your packages for each supported distro</p>
+  <p>Signs the packages via GPG key and uploads them to s3-compatible storage which serves as a respository</p>
+  <p>Generates a web page which you can share with your users where they can choose their distro, add the repository and install your package</p>
+
+  <h2>No vendor lock</h2>
+  <p>It is <a href="{{ site.github_url }}" target="_blank">open source</a> and you can self-host it</p>
+  <p>You can use your own s3 bucket for respoitories and thus switch to self-hosted version any time without changing respositories' URLs (i.e. your users noticing this)</p>
+
+  <h2>No subscription</h2>
+  <p>Pay only for storage and CPU when building</p>
+  <p>You can host your own build agent</p>
+  <p>You can use your own s3-compatible storage</p>
+</div>
