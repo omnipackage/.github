@@ -2,11 +2,11 @@
   <div class="container-fluid">
 
     <a class="navbar-brand ms-3" href="/">
-      <img src="/favicon-32x32.png" alt="logo">
+      {% include logo_with_brand_svg.html %}
     </a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav ms-4 mb-2 mb-lg-0">
         <li class="nav-item me-3">
           <a class="nav-link" href="/about">About</a>
         </li>
@@ -14,7 +14,7 @@
           <a class="nav-link" href="{{ site.getting_started_url }}" target="_blank">Getting started</a>
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link" href="{{ site.sign_up_url }}" target="_blank">Sign up</a>
+          <a class="nav-link" href="{{ site.sign_in_url }}" target="_blank">Sign in</a>
         </li>
 
       </ul>
