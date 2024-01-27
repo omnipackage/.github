@@ -25,6 +25,7 @@ description: Build and distribute RPM and DEB packages easily
 url: "https://omnipackage.org" # the base hostname & protocol for your site, e.g. http://example.com
 docs_url: "https://docs.omnipackage.org"
 github_url: "https://github.com/omnipackage"
+producthunt_url: "#"
 getting_started_url: "https://docs.omnipackage.org/getting_started/"
 sign_in_url: "https://web.omnipackage.org"
 

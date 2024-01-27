@@ -17,11 +17,9 @@ title: Linux packaging made easy
 </div>
 
 <div class="p-5 mb-4">
-  <h2>What it does</h2>
-  <p>Helps you create RPM spec-file and set of files for DEB. The files are actually templates to support multiple distros at once</p>
-  <p>Spawns <code>rpmbuild</code> and <code>dpkg-buildpackage</code> inside containers to build your packages for each supported distro</p>
-  <p>Signs the packages via GPG key and uploads them to s3-compatible storage which serves as a respository</p>
-  <p>Generates a web page which you can share with your users where they can choose their distro, add the repository and install your package</p>
+  <p class="lead mb-5">
+    OmniPackage helps you create RPM spec files and similar sets of files for DEB. For building, it spawns <code>rpmbuild</code> and <code>dpkg-buildpackage</code> inside containers for each supported distro. After building, it signs the packages via GPG key and uploads them to S3-compatible storage, which serves as a respository. Finally, it generates a web page with instructions on how to add the repository and install your package. You can share a link to this page with your users.
+  </p>
 
   <h2>No vendor lock</h2>
   <p>It is <a href="{{ site.github_url }}" target="_blank">open source</a> and you can self-host it</p>
