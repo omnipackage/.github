@@ -5,25 +5,68 @@ title: Linux packaging made easy
 
 <div class="p-5 mb-4 bg-body-tertiary rounded-3">
   <div class="container-fluid py-5">
-    <h1 class="display-6 fw-bold mb-4">We had centralized software repositories long before AppStore. Why is distributing software for Linux still so hard?</h1>
+    <h1 class="display-6 fw-bold mb-4">Build and distribute your own RPM and DEB packages — with your own repository</h1>
 
-    <h2 class="col-md-8 fs-4">OmniPackage abstracts the process of creating and distributing your own RPM and DEB packages for many distros using native package managers. Runs on GitHub Actions, your laptop, or anywhere else.</h2>
+    <p class="col-md-8 lead mb-3">We had centralized software repositories long before the App Store. Why is distributing software for Linux still so hard? OmniPackage makes it easy.</p>
 
-    <a href="https://github.com/omnipackage" class="btn btn-lg btn-primary">Follow on GitHub</a>
-    <a href="https://repositories.omnipackage.org/omnipackage-rs/stable/install.html" target="_blank" class="btn btn-lg btn-link">Install</a>
+    <p class="col-md-8 lead mb-4">Create RPM and DEB packages for many distros using native package managers. Runs on GitHub Actions, your laptop, or anywhere else.</p>
+
+    <a href="{{ site.getting_started_url }}" target="_blank" class="btn btn-lg btn-primary">Get started</a>
+    <a href="{{ site.github_url }}" target="_blank" class="btn btn-lg btn-outline-primary"><i class="bi bi-github me-2"></i>Star on GitHub</a>
+    <a href="https://repositories.omnipackage.org/omnipackage-rs/stable/install.html" target="_blank" class="btn btn-lg btn-link">Install CLI</a>
     <a href="/about" class="btn btn-lg btn-link">Learn more</a>
   </div>
 </div>
 
 <div class="p-5 mb-4">
-  <p class="lead mb-5">
+  <p class="lead mb-4">
     OmniPackage helps you create RPM spec files and similar sets of files for DEB. For building, it spawns <code>rpmbuild</code> and <code>dpkg-buildpackage</code> inside containers for each supported distro. After building, it signs the packages via GPG key and uploads them to S3-compatible storage, which serves as a repository. Finally, it generates a web page with instructions on how to add the repository and install your package. You can share a link to this page with your users.
   </p>
 
-  <h2>No vendor lock-in</h2>
-  <p>It is <a href="{{ site.github_url }}" target="_blank">open source</a> and not tied to any cloud or hosting provider</p>
-  <p>You use your own S3 bucket for repositories, be it AWS or a compatible self-hosted service</p>
-  <p>No subscriptions, registrations, credit cards</p>
+  <p class="mb-2 text-body-secondary">One command to build, sign, and publish your packages:</p>
+<pre class="bg-body-secondary p-3 rounded-3 mb-5"><code>$ omnipackage release ~/projects/my-awesome-project</code></pre>
+
+  <h2 class="mb-4">How it works</h2>
+  <div class="row g-4 mb-5">
+    <div class="col-md-4">
+      <div class="d-flex align-items-center mb-2">
+        <span class="badge rounded-pill text-bg-primary me-2">1</span>
+        <h3 class="h5 mb-0">Scaffold</h3>
+      </div>
+      <p class="text-body-secondary mb-0">OmniPackage helps you scaffold an RPM spec file and the other files required for DEB and RPM packaging.</p>
+    </div>
+    <div class="col-md-4">
+      <div class="d-flex align-items-center mb-2">
+        <span class="badge rounded-pill text-bg-primary me-2">2</span>
+        <h3 class="h5 mb-0">Release</h3>
+      </div>
+      <p class="text-body-secondary mb-0">Fill in your S3 credentials and a few other config options, then run <code>omnipackage release</code>. Packages are built in containers for each distro, signed with your GPG key, and uploaded to your bucket.</p>
+    </div>
+    <div class="col-md-4">
+      <div class="d-flex align-items-center mb-2">
+        <span class="badge rounded-pill text-bg-primary me-2">3</span>
+        <h3 class="h5 mb-0">Share</h3>
+      </div>
+      <p class="text-body-secondary mb-0">Share the install page generated alongside the packages so your users can add the repository and install your software with their native package manager.</p>
+    </div>
+  </div>
+
+  <h2 class="mb-3">Supported distros</h2>
+  <p class="text-body-secondary mb-4">Fetched live from <a href="https://github.com/omnipackage/omnipackage-rs/blob/master/src/distros.yml" target="_blank"><code>distros.yml</code></a> in the OmniPackage repo.</p>
+
+  <div id="supported-distros" class="mb-5">
+    <p class="text-body-secondary"><span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Loading supported distros…</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js" crossorigin="anonymous"></script>
+  <script src="/assets/js/supported_distros.js" defer></script>
+
+  <h2 class="mb-3">No vendor lock-in</h2>
+  <ul class="list-unstyled mb-5">
+    <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i><a href="{{ site.github_url }}" target="_blank">Open source</a> and not tied to any cloud or hosting provider</li>
+    <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i>Use your own S3 bucket for repositories — AWS or any compatible self-hosted service</li>
+    <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i>No subscriptions, registrations, or credit cards</li>
+  </ul>
 
   <h2>Projects using OmniPackage</h2>
   <ul>
