@@ -7,12 +7,11 @@ title: Linux packaging made easy
   <div class="container-fluid py-5">
     <h1 class="display-6 fw-bold mb-4">We had centralized software repositories long before AppStore. Why is distributing software for Linux still so hard?</h1>
 
-    <h2 class="col-md-8 fs-4">OmniPackage combines CI with repositories and set of tools to simplify the process of creating and distributing your own RPM and DEB packages for many distros using native package managers</h2>
+    <h2 class="col-md-8 fs-4">OmniPackage abstracts the process of creating and distributing your own RPM and DEB packages for many distros using native package managers. Can run on Github Actions or your localhost</h2>
 
     <a href="https://github.com/omnipackage" class="btn btn-lg btn-primary">Follow on GitHub</a>
+    <a href="https://repositories.omnipackage.org/omnipackage-rs/stable/install.html" target="_blank" class="btn btn-lg btn-link">Install</a>
     <a href="/about" class="btn btn-lg btn-link">Learn more</a>
-
-    <a href="https://repositories.omnipackage.org/mpz/stable/install.html" target="_blank" class="btn btn-link btn-lg">Demo: project install page</a>
   </div>
 </div>
 
@@ -22,11 +21,15 @@ title: Linux packaging made easy
   </p>
 
   <h2>No vendor lock</h2>
-  <p>It is <a href="{{ site.github_url }}" target="_blank">open source</a> and you can self-host it</p>
-  <p>You can use your own s3 bucket for respoitories and thus switch to self-hosted version any time without changing respositories' URLs (i.e. your users noticing this)</p>
+  <p>It is <a href="{{ site.github_url }}" target="_blank">open source</a> and not tied to any cloud or hosting provider</p>
+  <p>You use your own s3 bucket for respoitories, be it AWS or compatible self-hosted service</p>
+  <p>No subscriptions, registrations, credit cards</p>
 
-  <h2>No subscription</h2>
-  <p>Pay only for storage and CPU when building</p>
-  <p>You can host your own build agent</p>
-  <p>You can use your own s3-compatible storage</p>
+  <h2>Projects using OmniPackage</h2>
+  <ul>
+    <li>
+      <a href="https://repositories.omnipackage.org/mpz/stable/install.html" target="_blank" class="btn btn-link btn-lg">mpz - music player for big local collections</a>
+    </li>
+  </ul>
+
 </div>
