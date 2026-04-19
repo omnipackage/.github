@@ -16,7 +16,7 @@
     const res = await fetch('https://raw.githubusercontent.com/omnipackage/omnipackage-rs/master/src/distros.yml', { cache: 'no-cache' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = jsyaml.load(await res.text());
-    const distros = data.distros || [];
+    const distros = (data.distros || []).filter(d => !d.deprecated);
 
     const groups = new Map();
     for (const d of distros) {
