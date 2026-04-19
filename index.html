@@ -7,7 +7,7 @@ title: Linux packaging made easy
   <div class="container-fluid py-5">
     <h1 class="display-6 fw-bold mb-4">We had centralized software repositories long before AppStore. Why is distributing software for Linux still so hard?</h1>
 
-    <h2 class="col-md-8 fs-4">OmniPackage abstracts the process of creating and distributing your own RPM and DEB packages for many distros using native package managers. Can run on Github Actions or your localhost</h2>
+    <h2 class="col-md-8 fs-4">OmniPackage abstracts the process of creating and distributing your own RPM and DEB packages for many distros using native package managers. Runs on GitHub Actions, your laptop, or anywhere else.</h2>
 
     <a href="https://github.com/omnipackage" class="btn btn-lg btn-primary">Follow on GitHub</a>
     <a href="https://repositories.omnipackage.org/omnipackage-rs/stable/install.html" target="_blank" class="btn btn-lg btn-link">Install</a>
@@ -17,12 +17,12 @@ title: Linux packaging made easy
 
 <div class="p-5 mb-4">
   <p class="lead mb-5">
-    OmniPackage helps you create RPM spec files and similar sets of files for DEB. For building, it spawns <code>rpmbuild</code> and <code>dpkg-buildpackage</code> inside containers for each supported distro. After building, it signs the packages via GPG key and uploads them to S3-compatible storage, which serves as a respository. Finally, it generates a web page with instructions on how to add the repository and install your package. You can share a link to this page with your users.
+    OmniPackage helps you create RPM spec files and similar sets of files for DEB. For building, it spawns <code>rpmbuild</code> and <code>dpkg-buildpackage</code> inside containers for each supported distro. After building, it signs the packages via GPG key and uploads them to S3-compatible storage, which serves as a repository. Finally, it generates a web page with instructions on how to add the repository and install your package. You can share a link to this page with your users.
   </p>
 
-  <h2>No vendor lock</h2>
+  <h2>No vendor lock-in</h2>
   <p>It is <a href="{{ site.github_url }}" target="_blank">open source</a> and not tied to any cloud or hosting provider</p>
-  <p>You use your own s3 bucket for respoitories, be it AWS or compatible self-hosted service</p>
+  <p>You use your own S3 bucket for repositories, be it AWS or a compatible self-hosted service</p>
   <p>No subscriptions, registrations, credit cards</p>
 
   <h2>Projects using OmniPackage</h2>

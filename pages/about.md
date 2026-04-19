@@ -8,7 +8,7 @@ permalink: /about
 
 On Windows and macOS, you can build a binary, publish it on your website, and be reasonably sure that users will be able to download, install, and run your application. On Linux, this is nearly impossible due to the incompatible ABI between different distros and even different versions of the same distro.
 
-There are ways to approximate this "Windows experience", for example, via static linkage or by using intaller frameworks and maintaining different binaries for different ABIs. But all these are tricky to do and have limitations. On top of that, Linux users are not used to downloading install_whatever.exe and running it; they are used to apt/dnf/zypper install, preferably from their distro's repository.
+There are ways to approximate this "Windows experience", for example, via static linkage or by using installer frameworks and maintaining different binaries for different ABIs. But all these are tricky to do and have limitations. On top of that, Linux users are not used to downloading install_whatever.exe and running it; they are used to apt/dnf/zypper install, preferably from their distro's repository.
 
 #### Creating DEB or RPM packages is hard
 
@@ -24,7 +24,7 @@ If you write a program and want to make it available in some distro's repository
 
 #### Official repositories are not AppStore
 
-While they serve similar purpose from user persective, they designed for distributing OS itself. Luckily you can use same tools as them and achieve the same user experience as `apt install my-awesome-program`. **This is what OmniPackage does**.
+While they serve a similar purpose from the user's perspective, they are designed for distributing the OS itself. Luckily you can use same tools as them and achieve the same user experience as `apt install my-awesome-program`. **This is what OmniPackage does**.
 
 OmniPackage offers a streamlined workflow for building and distributing packages that is focused on independent developers, not distro maintainers.
 
@@ -38,11 +38,11 @@ Users need to add those repositories, and once they do that, they get the apt/dn
 
 The problem with distributing Linux software is well known, and many have tried to solve it.
 
-Flatpak and Snap maintain their own runtimes that they can control and make sure the ABI is compatible across all distros, essentially bypassing the fundamental issue (sweeping it under the rug). To do this, they implement a massive amount of clever hacks while adding some new features like isolation for additional security. On top of that, they provide an AppStore-like experience for users and developers. They are almost "Docker for desktop software.".
+Flatpak and Snap maintain their own runtimes that they can control and make sure the ABI is compatible across all distros, essentially bypassing the fundamental issue (sweeping it under the rug). To do this, they implement a massive amount of clever hacks while adding some new features like isolation for additional security. On top of that, they provide an AppStore-like experience for users and developers. They are almost "Docker for desktop software".
 
 AppImage is essentially static linkage; it packs all your dependencies into one archive suitable for many distros without the need for actual static. This gives a "Windows-like" experience when you can build appimage, put it on your site, and users will probably be able to run it.
 
-[AUR](https://aur.archlinux.org/){:target="_blank"} gives Arch Linux users the ability to distribute recepies for building their software.
+[AUR](https://aur.archlinux.org/){:target="_blank"} gives Arch Linux users the ability to distribute recipes for building their software.
 
 [Nix](https://nixos.org/){:target="_blank"} goes in a fundamentally different direction; while clever and impressive, like AUR it works only within one distro.
 
