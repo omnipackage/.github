@@ -32,8 +32,11 @@
       const pkgType = (items[0] && items[0].package_type || '').toUpperCase();
       html.push('<div class="col-md-6 col-lg-4">');
       html.push('<div class="card h-100"><div class="card-body">');
-      html.push('<div class="d-flex justify-content-between align-items-baseline mb-2">');
+      html.push('<div class="d-flex justify-content-between align-items-center mb-2">');
+      html.push('<div class="d-flex align-items-center gap-2">');
+      html.push('<img src="/assets/images/distros/' + family + '.svg" alt="" width="20" height="20" style="flex-shrink:0;" onerror="this.style.display=\'none\'">');
       html.push('<h3 class="h6 mb-0">' + label + '</h3>');
+      html.push('</div>');
       if (pkgType) html.push('<small class="text-body-secondary text-uppercase" style="font-size:0.7rem;letter-spacing:0.05em;">' + pkgType + '</small>');
       html.push('</div>');
       html.push('<div class="d-flex flex-wrap small text-body-secondary" style="gap:0.25rem 0.75rem;">');
