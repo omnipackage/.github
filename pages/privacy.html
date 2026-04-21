@@ -4,4 +4,28 @@ title: Privacy
 permalink: /privacy
 ---
 
-<h1> {{ page.title }} </h1>
+<h1 class="mb-4">{{ page.title }}</h1>
+
+<p class="lead">OmniPackage is an open source project. This site doesn't collect, store, or share any personal information about you.</p>
+
+<p>There are no accounts, no forms, no cookies, and no analytics. Nothing runs on a server we control that tries to identify you — the whole site is a set of static files served by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.</p>
+
+<h4 class="mt-5">What your browser does talk to</h4>
+
+<p>To be precise, a few third parties see your requests simply because your browser loads assets from them:</p>
+
+<ul>
+  <li><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank">GitHub Pages</a> hosts this site and logs request metadata (including IP addresses) for abuse prevention, as described in GitHub's privacy statement.</li>
+  <li><a href="https://www.jsdelivr.com/terms/privacy-policy-jsdelivr-net" target="_blank">jsDelivr</a> serves the Bootstrap CSS, Bootstrap Icons, and js-yaml library used on this page.</li>
+  <li><a href="https://raw.githubusercontent.com" target="_blank">raw.githubusercontent.com</a> serves the live <code>distros.yml</code> file fetched by the "Supported distros" section.</li>
+</ul>
+
+<p>We don't receive or aggregate any of that data ourselves. If you're privacy-conscious, blocking third-party requests at the browser level won't break anything important here — the text and layout come from the same origin as the page.</p>
+
+<h4 class="mt-5">The OmniPackage tool itself</h4>
+
+<p>The <a href="{{ site.github_url }}" target="_blank">OmniPackage</a> CLI runs locally on your machine. It doesn't phone home, doesn't report usage, and doesn't require registration. The only network calls it makes are to the package sources and S3 bucket <em>you</em> configure.</p>
+
+<h4 class="mt-5">Changes</h4>
+
+<p>If this ever changes, the update will land in this page's <a href="{{ site.github_url }}/.github/commits/master/pages/privacy.html" target="_blank">git history</a> — which is probably the most honest changelog a privacy policy can have.</p>
