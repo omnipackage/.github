@@ -13,7 +13,6 @@ title: Linux packaging made easy
 
     <a href="{{ site.getting_started_url }}" target="_blank" class="btn btn-lg btn-primary">Get started</a>
     <a href="{{ site.github_url }}" target="_blank" class="btn btn-lg btn-outline-primary"><i class="bi bi-github me-2"></i>Star on GitHub</a>
-    <a href="https://repositories.omnipackage.org/omnipackage-rs/stable/install.html" target="_blank" class="btn btn-lg btn-link">Install CLI</a>
     <a href="/about" class="btn btn-lg btn-link">Learn more</a>
   </div>
 </div>
@@ -50,6 +49,14 @@ title: Linux packaging made easy
       <p class="text-body-secondary mb-0">Share the install page generated alongside the packages so your users can add the repository and install your software with their native package manager.</p>
     </div>
   </div>
+
+  <h3 class="h5 mb-3">From your users' perspective</h3>
+  <p class="text-body-secondary mb-2">On the latest Ubuntu, for example, they run four commands to add the repository and install your package:</p>
+<pre class="bg-body-secondary p-3 rounded-3 mb-3"><code>$ echo 'deb https://repositories.omnipackage.org/omnipackage-rs/stable/ubuntu_26.04 stable/' | sudo tee /etc/apt/sources.list.d/omnipackage_omnipackage.list
+$ curl -fsSL https://repositories.omnipackage.org/omnipackage-rs/stable/ubuntu_26.04/stable/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/omnipackage_omnipackage.gpg > /dev/null
+$ sudo apt-get update
+$ sudo apt-get install omnipackage</code></pre>
+  <p class="text-body-secondary mb-5">Users do this once. From then on, updates to your software arrive through <code>apt upgrade</code> alongside everything else from the official Ubuntu repos — no extra steps, no separate updater. The same applies on Debian, Fedora, openSUSE, and the other supported distros, each through its native package manager.</p>
 
   <h2 class="mb-4">Supported distros</h2>
 
