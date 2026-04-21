@@ -32,14 +32,14 @@
       const pkgType = (items[0] && items[0].package_type || '').toUpperCase();
       html.push('<div class="col-md-6 col-lg-4">');
       html.push('<div class="card h-100"><div class="card-body">');
-      html.push('<div class="d-flex justify-content-between align-items-center mb-2">');
+      html.push('<div class="d-flex justify-content-between align-items-baseline mb-2">');
       html.push('<h3 class="h6 mb-0">' + label + '</h3>');
-      if (pkgType) html.push('<span class="badge text-bg-secondary">' + pkgType + '</span>');
+      if (pkgType) html.push('<small class="text-body-secondary text-uppercase" style="font-size:0.7rem;letter-spacing:0.05em;">' + pkgType + '</small>');
       html.push('</div>');
-      html.push('<div class="d-flex flex-wrap gap-1">');
+      html.push('<div class="d-flex flex-wrap small text-body-secondary" style="gap:0.25rem 0.75rem;">');
       for (const d of items) {
         const version = (d.name || '').replace(label, '').trim() || d.name;
-        html.push('<span class="badge text-bg-light border">' + version + '</span>');
+        html.push('<span>' + version + '</span>');
       }
       html.push('</div></div></div></div>');
     }
