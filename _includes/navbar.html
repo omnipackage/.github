@@ -1,35 +1,25 @@
-<nav class="navbar navbar-expand-lg">
-  <div class="container-fluid">
+<nav class="navbar navbar-expand py-2">
+  <div class="container-fluid flex-wrap gap-2">
 
-    <a class="navbar-brand ms-3" href="/">
-      {% include logo_with_brand.svg.html height="48" %}
+    <a class="navbar-brand me-2 me-md-3" href="/">
+      {% include logo_with_brand.svg.html height="36" %}
     </a>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-4 mb-2 mb-lg-0">
-        <li class="nav-item me-3">
-          <a class="nav-link" href="/about">About</a>
-        </li>
-        <li class="nav-item me-3">
-          <a class="nav-link" href="{{ site.getting_started_url }}" target="_blank">Getting started</a>
-        </li>
-      </ul>
+    <ul class="navbar-nav flex-row me-auto">
+      <li class="nav-item">
+        <a class="nav-link px-2" href="/about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link px-2" href="{{ site.getting_started_url }}" target="_blank" rel="noopener">Getting started</a>
+      </li>
+    </ul>
+
+    <div class="d-flex align-items-center gap-1">
+      {% include theme_selector.html %}
+      <a class="nav-link opacity-50 px-2" href="{{ site.github_url }}" target="_blank" rel="noopener" aria-label="GitHub repository">
+        <i class="bi bi-github" aria-hidden="true"></i>
+      </a>
     </div>
 
-    <span class="navbar-text">
-      <div class="d-inline-flex me-3">
-        {% include theme_selector.html %}
-      </div>
-
-      <div class="d-inline-flex me-3">
-        <a class="nav-link opacity-50" href="{{ site.github_url }}" target="_blank">
-          <i class="bi bi-github me-2"></i>
-        </a>
-      </div>
-    </span>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
   </div>
 </nav>
