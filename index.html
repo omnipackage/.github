@@ -52,6 +52,27 @@ json_ld: >-
   </div>
 </header>
 
+<p class="d-flex flex-wrap gap-2 align-items-center mb-4 px-3 px-md-0" aria-label="Project status">
+  <a href="{{ site.github_repo_url }}/blob/master/LICENSE.txt" target="_blank" rel="noopener">
+    <img src="https://img.shields.io/github/license/{{ site.github_repo }}?style=flat&amp;cacheSeconds=300" alt="License: {{ site.license }}" loading="lazy" height="20">
+  </a>
+  <a href="{{ site.github_repo_url }}/releases" target="_blank" rel="noopener">
+    <img src="https://img.shields.io/github/v/release/{{ site.github_repo }}?display_name=tag&amp;label=release&amp;style=flat" alt="Latest release" loading="lazy" height="20">
+  </a>
+  <a href="{{ site.github_repo_url }}/actions/workflows/ci.yml" target="_blank" rel="noopener">
+    <img src="https://img.shields.io/github/actions/workflow/status/{{ site.github_repo }}/ci.yml?label=CI&amp;style=flat" alt="CI status" loading="lazy" height="20">
+  </a>
+  <a href="{{ site.github_repo_url }}" target="_blank" rel="noopener">
+    <img src="https://img.shields.io/github/stars/{{ site.github_repo }}?style=flat" alt="GitHub stars" loading="lazy" height="20">
+  </a>
+  <a href="{{ site.install_stable_url }}" target="_blank" rel="noopener">
+    <img src="{{ site.repo_badge_stable_url }}" alt="Available via OmniPackage stable repository" loading="lazy" height="20">
+  </a>
+  <a href="{{ site.install_master_url }}" target="_blank" rel="noopener">
+    <img src="{{ site.repo_badge_master_url }}" alt="Available via OmniPackage master (unstable) repository" loading="lazy" height="20">
+  </a>
+</p>
+
 <div class="px-0 py-4 px-md-5 py-md-5 mb-4">
   <p class="lead mb-4">
     OmniPackage helps you create RPM spec files and similar sets of files for DEB. For building, it spawns <code>rpmbuild</code> and <code>dpkg-buildpackage</code> inside containers for each supported distro. After building, it signs the packages via GPG key and uploads them to S3-compatible storage, which serves as a repository. Finally, it generates a web page with instructions on how to add the repository and install your package. You can share a link to this page with your users.
@@ -98,7 +119,8 @@ $ sudo apt-get install omnipackage</code></pre>
   </section>
 
   <section aria-labelledby="supported-distros-heading">
-    <h2 id="supported-distros-heading" class="mb-4">Supported distros</h2>
+    <h2 id="supported-distros-heading" class="mb-2">Supported distros</h2>
+    <p class="text-body-secondary mb-4">All packages are built for <code>x86_64</code>.</p>
 
     <div id="supported-distros" class="mb-3">
       <p class="text-body-secondary"><span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Loading supported distros…</p>
@@ -114,7 +136,7 @@ $ sudo apt-get install omnipackage</code></pre>
     <h2 id="no-lock-in" class="mb-3">No vendor lock-in</h2>
     <ul class="list-unstyled mb-5">
       <li class="mb-2">{% include icons/check2.svg.html class="text-success me-2" %}<a href="{{ site.github_url }}" target="_blank" rel="noopener">Open source</a> and not tied to any cloud or hosting provider</li>
-      <li class="mb-2">{% include icons/check2.svg.html class="text-success me-2" %}Use your own S3 bucket for repositories — AWS or any compatible self-hosted service</li>
+      <li class="mb-2">{% include icons/check2.svg.html class="text-success me-2" %}Use your own S3 bucket for repositories — AWS S3, Cloudflare R2 (recommended for free egress), MinIO, or any S3-compatible service</li>
       <li class="mb-2">{% include icons/check2.svg.html class="text-success me-2" %}No subscriptions, registrations, or credit cards</li>
     </ul>
   </section>
@@ -122,6 +144,9 @@ $ sudo apt-get install omnipackage</code></pre>
   <section aria-labelledby="projects-using">
     <h2 id="projects-using">Projects using OmniPackage</h2>
     <ul>
+      <li>
+        <a href="{{ site.install_stable_url }}" target="_blank" rel="noopener" class="btn btn-link btn-lg">OmniPackage — itself, distributed via OmniPackage</a>
+      </li>
       <li>
         <a href="https://repositories.omnipackage.org/mpz/stable/install.html" target="_blank" rel="noopener" class="btn btn-link btn-lg">mpz — music player for big local collections</a>
       </li>

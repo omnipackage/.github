@@ -29,8 +29,16 @@ url: "https://omnipackage.org"
 docs_url: "https://docs.omnipackage.org"
 github_url: "https://github.com/omnipackage"
 github_repo_url: "https://github.com/omnipackage/omnipackage-rs"
+github_repo: "omnipackage/omnipackage-rs"
 producthunt_url: "#"
 getting_started_url: "https://docs.omnipackage.org/getting_started/"
+install_stable_url: "https://repositories.omnipackage.org/omnipackage-rs/stable/install.html"
+install_master_url: "https://repositories.omnipackage.org/omnipackage-rs/master/install.html"
+repo_badge_stable_url: "https://repositories.omnipackage.org/omnipackage-rs/stable/badge.svg"
+repo_badge_master_url: "https://repositories.omnipackage.org/omnipackage-rs/master/badge.svg"
+software_version: "0.1.7"
+license: "GPL-3.0"
+locale: en_US
 author: Oleg Antonyan
 
 # Build settings

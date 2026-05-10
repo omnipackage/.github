@@ -25,6 +25,7 @@
     <meta property="og:title" content="{{ page_title }}">
     <meta property="og:description" content="{{ page_description | strip_newlines | escape }}">
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="{{ site.locale | default: 'en_US' }}">
     <meta property="og:url" content="{{ page.url | absolute_url }}">
     <meta property="og:image" content="{{ '/apple-touch-icon.png' | absolute_url }}">
     <meta property="og:image:alt" content="{{ site.title }} logo">
@@ -68,7 +69,8 @@
           "name": "{{ site.title }}",
           "description": {{ site.description | strip_newlines | jsonify }},
           "publisher": { "@id": "{{ site.url }}/#organization" },
-          "inLanguage": "en"
+          "inLanguage": "en",
+          "dateModified": "{{ site.time | date_to_xmlschema }}"
         },
         {
           "@type": "SoftwareApplication",
@@ -79,15 +81,20 @@
           "operatingSystem": "Linux",
           "url": "{{ site.url }}",
           "downloadUrl": "{{ site.github_repo_url }}/releases",
+          "installUrl": "{{ site.install_stable_url }}",
+          "releaseNotes": "{{ site.github_repo_url }}/releases",
+          "softwareVersion": "{{ site.software_version }}",
           "softwareHelp": "{{ site.docs_url }}",
           "license": "{{ site.github_repo_url }}/blob/master/LICENSE",
           "codeRepository": "{{ site.github_repo_url }}",
+          "processorRequirements": "x86_64",
           "author": { "@id": "{{ site.url }}/#organization" },
           "offers": {
             "@type": "Offer",
             "price": "0",
             "priceCurrency": "USD"
-          }
+          },
+          "dateModified": "{{ site.time | date_to_xmlschema }}"
         }
         {%- if page.json_ld -%}
         , {{ page.json_ld }}
