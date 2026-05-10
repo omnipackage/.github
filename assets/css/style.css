@@ -58,3 +58,14 @@
   --bs-btn-disabled-color: #8cba6a;
   --bs-btn-disabled-border-color: #8cba6a;
 }
+
+/* Tertiary CTA: text-only, brand-colored to stay in the same family. */
+.btn-link {
+  --bs-btn-color: #274e13;
+  --bs-btn-hover-color: #19320c;
+}
+
+[data-bs-theme="dark"] .btn-link {
+  --bs-btn-color: #8cba6a;
+  --bs-btn-hover-color: #b3d499;
+}
