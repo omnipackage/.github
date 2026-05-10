@@ -2,27 +2,42 @@
 layout: default
 title: About
 permalink: /about
+description: >-
+  Why distributing software for Linux is hard, why creating DEB and RPM
+  packages by hand is painful, and how OmniPackage gives independent
+  developers an apt/dnf/zypper install experience without becoming a distro
+  maintainer. Comparison with Flatpak, Snap, AppImage, AUR, and Nix.
+json_ld: >-
+  {
+    "@type": "Article",
+    "headline": "Why distributing software for Linux is hard — and how OmniPackage helps",
+    "author": { "@id": "https://omnipackage.org/#organization" },
+    "publisher": { "@id": "https://omnipackage.org/#organization" },
+    "mainEntityOfPage": "https://omnipackage.org/about"
+  }
 ---
 
-#### Distributing software for GNU/Linux is [hard](https://www.youtube.com/watch?v=Pzl1B7nB9Kc){:target="_blank"}
+# About OmniPackage
+
+## Distributing software for GNU/Linux is [hard](https://www.youtube.com/watch?v=Pzl1B7nB9Kc){:target="_blank"}
 
 On Windows and macOS, you can build a binary, publish it on your website, and be reasonably sure that users will be able to download, install, and run your application. On Linux, this is nearly impossible due to the incompatible ABI between different distros and even different versions of the same distro.
 
 There are ways to approximate this "Windows experience", for example, via static linkage or by using installer frameworks and maintaining different binaries for different ABIs. But all these are tricky to do and have limitations. On top of that, Linux users are not used to downloading install_whatever.exe and running it; they are used to apt/dnf/zypper install, preferably from their distro's repository.
 
-#### Creating DEB or RPM packages is hard
+## Creating DEB or RPM packages is hard
 
 These two are the most popular package formats for Linux; they've been around for ages, and for those who came from Windows, these packages look similar to "install.exe". But they are designed and used for different purposes—making the distro itself. The Linux distro is essentially a set of packages. Whatever maintainers put into official repositories is the distro; you just install a subset of it.
 
 If you ever tried to write a SPEC file for RPM or a set of files for DEB packages, you probably noticed that this is harder than it should be. That's because your use case is probably not what these packages are designed for. You probably want to build your awesome software and share it with friends and users. Distro maintainers need to support different CPU architectures, apply patches, manage dependencies (sometimes conflicting), at scale thousands of packages that together make a distro.
 
-#### We have all infrastructure already, but it's not for ordinary developer
+## We have all infrastructure already, but it's not for ordinary developer
 
 Being able to `sudo apt install firefox` is fantastic. But it's not designed for you as an independent software developer, while it's possible to push your software to the official repositories of some distros, and even more, if your software is so good and popular, maintainers will probably do it for you.
 
 If you write a program and want to make it available in some distro's repository, it's going to be hard. You probably won't be allowed to build statically some library that is available in that distro, even if it's incompatible, and you need to maintain 15 more distros, all with their own shenanigans, different libraries' versions, etc. Also, forget about distributing proprietary software this way; it's an exception when distros accept closed-source binaries into their repositories, and it's very unlikely that you'll be allowed to do this. Repeat the same procedure for each distro you want to support. That's a massive effort.
 
-#### Official repositories are not AppStore
+## Official repositories are not AppStore
 
 While they serve a similar purpose from the user's perspective, they are designed for distributing the OS itself. Luckily you can use same tools as them and achieve the same user experience as `apt install my-awesome-program`. **This is what OmniPackage does**.
 
@@ -34,7 +49,7 @@ OmniPackage offers a streamlined workflow for building and distributing packages
 
 Users need to add those repositories, and once they do that, they get the apt/dnf/zypper install experience with your package.
 
-#### What about Flatpak, Snap, AppImage
+## What about Flatpak, Snap, AppImage
 
 The problem with distributing Linux software is well known, and many have tried to solve it.
 
@@ -48,4 +63,4 @@ AppImage is essentially static linkage; it packs all your dependencies into one 
 
 Having many different ways to do the same thing could be a blessing and a curse. But this is what Linux and open source in general are all about. Now you have yet another thing that helps you distribute software for Linux. Choose wisely.
 
-OmniPackage is inspired by [openSUSE Build Service](https://build.opensuse.org/){:target="_blank"}
+OmniPackage is inspired by [openSUSE Build Service](https://build.opensuse.org/){:target="_blank"}.

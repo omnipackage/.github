@@ -1,5 +1,31 @@
 ---
 layout: none
+permalink: /robots.txt
+sitemap: false
 ---
 User-agent: *
+Allow: /
+
+# Explicitly allow major AI crawlers — public, open-source project content.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
 Sitemap: {{ site.url }}/sitemap.xml

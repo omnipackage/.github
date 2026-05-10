@@ -1,11 +1,18 @@
 ---
 permalink: /404.html
 layout: default
+title: Page not found
+description: The page you're looking for doesn't exist on omnipackage.org.
+noindex: true
+sitemap: false
 ---
 
-<div class="text-center">
-  <h1>404</h1>
-
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
+<div class="text-center py-5">
+  <h1 class="display-1 fw-bold">404</h1>
+  <p class="lead mb-4">That page doesn't exist.</p>
+  <p class="mb-4">
+    <a href="/" class="btn btn-primary me-2">Back to home</a>
+    <a href="{{ site.docs_url }}" class="btn btn-outline-primary me-2" target="_blank" rel="noopener">Documentation</a>
+    <a href="{{ site.github_url }}" class="btn btn-outline-primary" target="_blank" rel="noopener"><i class="bi bi-github me-2" aria-hidden="true"></i>GitHub</a>
+  </p>
 </div>

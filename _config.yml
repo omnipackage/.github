@@ -19,19 +19,33 @@
 # in the templates via {{ site.myvariable }}.
 
 title: OmniPackage
-#email: your-email@example.com
-description: Build and distribute RPM and DEB packages easily
-#baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://omnipackage.org" # the base hostname & protocol for your site, e.g. http://example.com
+tagline: Linux packaging made easy
+description: >-
+  OmniPackage is an open source tool for building and distributing your own
+  RPM and DEB packages for Linux. Build for many distros using native package
+  managers, sign with GPG, and host your own repository on any S3-compatible
+  storage. Runs in CI, on your laptop, or anywhere else.
+url: "https://omnipackage.org"
 docs_url: "https://docs.omnipackage.org"
 github_url: "https://github.com/omnipackage"
+github_repo_url: "https://github.com/omnipackage/omnipackage-rs"
 producthunt_url: "#"
 getting_started_url: "https://docs.omnipackage.org/getting_started/"
+author: Oleg Antonyan
 
 # Build settings
 #theme: minima
 plugins:
   - jekyll-sitemap
+
+exclude:
+  - Makefile
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  # profile/README.md is rendered by GitHub on the org profile page.
+  # Keep Jekyll out of it so the two don't interfere.
+  - profile
 
 # Exclude from processing.
 # The following items will not be processed, by default.

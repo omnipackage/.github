@@ -1,9 +1,42 @@
 ---
 layout: default
 title: Linux packaging made easy
+description: >-
+  OmniPackage is an open source CLI for building and distributing your own
+  RPM and DEB packages for Debian, Ubuntu, Fedora, openSUSE, AlmaLinux,
+  Rocky Linux, and Mageia. Sign with GPG, host your repository on any
+  S3-compatible storage, and let users install via their native package
+  manager. Runs in GitHub Actions or locally.
+json_ld: >-
+  {
+    "@type": "HowTo",
+    "name": "How to build and distribute your own Linux packages with OmniPackage",
+    "description": "Three steps to ship your software as native RPM and DEB packages with your own repository.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Scaffold",
+        "text": "Use the omnipackage CLI to scaffold an RPM spec file and the equivalent files required for DEB packaging."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Release",
+        "text": "Provide S3 credentials and a few config options, then run omnipackage release. Packages are built in containers for each distro, signed with your GPG key, and uploaded to your bucket."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Share",
+        "text": "Share the install page generated alongside the packages so your users can add the repository and install your software with apt, dnf, or zypper."
+      }
+    ]
+  }
 ---
 
-<div class="p-5 mb-4 bg-body-tertiary rounded-3">
+<article>
+<header class="p-5 mb-4 bg-body-tertiary rounded-3">
   <div class="container-fluid py-5">
     <h1 class="display-6 fw-bold mb-4">Build and distribute your own RPM and DEB packages — with your own repository</h1>
 
@@ -12,10 +45,10 @@ title: Linux packaging made easy
     <p class="col-md-8 lead mb-4">Create RPM and DEB packages for many distros using native package managers. Runs on GitHub Actions, your laptop, or anywhere else.</p>
 
     <a href="{{ site.getting_started_url }}" target="_blank" class="btn btn-lg btn-primary">Get started</a>
-    <a href="{{ site.github_url }}" target="_blank" class="btn btn-lg btn-outline-primary"><i class="bi bi-github me-2"></i>Star on GitHub</a>
+    <a href="{{ site.github_url }}" target="_blank" rel="noopener" class="btn btn-lg btn-outline-primary"><i class="bi bi-github me-2" aria-hidden="true"></i>Star on GitHub</a>
     <a href="/about" class="btn btn-lg btn-link">Learn more</a>
   </div>
-</div>
+</header>
 
 <div class="p-5 mb-4">
   <p class="lead mb-4">
@@ -25,62 +58,73 @@ title: Linux packaging made easy
   <p class="mb-2 text-body-secondary">One command to build, sign, and publish your packages:</p>
 <pre class="bg-body-secondary p-3 rounded-3 mb-5"><code>$ omnipackage release ~/projects/my-awesome-project</code></pre>
 
-  <h2 class="mb-4">How it works</h2>
-  <div class="row g-4 mb-5">
-    <div class="col-md-4">
-      <div class="d-flex align-items-center mb-2">
-        <span class="badge rounded-pill text-bg-primary me-2">1</span>
-        <h3 class="h5 mb-0">Scaffold</h3>
-      </div>
-      <p class="text-body-secondary mb-0">OmniPackage helps you scaffold an RPM spec file and the other files required for DEB and RPM packaging.</p>
-    </div>
-    <div class="col-md-4">
-      <div class="d-flex align-items-center mb-2">
-        <span class="badge rounded-pill text-bg-primary me-2">2</span>
-        <h3 class="h5 mb-0">Release</h3>
-      </div>
-      <p class="text-body-secondary mb-0">Fill in your S3 credentials and a few other config options, then run <code>omnipackage release</code>. Packages are built in containers for each distro, signed with your GPG key, and uploaded to your bucket.</p>
-    </div>
-    <div class="col-md-4">
-      <div class="d-flex align-items-center mb-2">
-        <span class="badge rounded-pill text-bg-primary me-2">3</span>
-        <h3 class="h5 mb-0">Share</h3>
-      </div>
-      <p class="text-body-secondary mb-0">Share the install page generated alongside the packages so your users can add the repository and install your software with their native package manager.</p>
-    </div>
-  </div>
+  <section aria-labelledby="how-it-works">
+    <h2 id="how-it-works" class="mb-4">How it works</h2>
+    <ol class="row g-4 mb-5 list-unstyled">
+      <li class="col-md-4">
+        <div class="d-flex align-items-center mb-2">
+          <span class="badge rounded-pill text-bg-primary me-2">1</span>
+          <h3 class="h5 mb-0">Scaffold</h3>
+        </div>
+        <p class="text-body-secondary mb-0">OmniPackage helps you scaffold an RPM spec file and the other files required for DEB and RPM packaging.</p>
+      </li>
+      <li class="col-md-4">
+        <div class="d-flex align-items-center mb-2">
+          <span class="badge rounded-pill text-bg-primary me-2">2</span>
+          <h3 class="h5 mb-0">Release</h3>
+        </div>
+        <p class="text-body-secondary mb-0">Fill in your S3 credentials and a few other config options, then run <code>omnipackage release</code>. Packages are built in containers for each distro, signed with your GPG key, and uploaded to your bucket.</p>
+      </li>
+      <li class="col-md-4">
+        <div class="d-flex align-items-center mb-2">
+          <span class="badge rounded-pill text-bg-primary me-2">3</span>
+          <h3 class="h5 mb-0">Share</h3>
+        </div>
+        <p class="text-body-secondary mb-0">Share the install page generated alongside the packages so your users can add the repository and install your software with their native package manager.</p>
+      </li>
+    </ol>
+  </section>
 
-  <h3 class="h5 mb-3">From your users' perspective</h3>
-  <p class="text-body-secondary mb-2">On the latest Ubuntu, for example, they run four commands to add the repository and install your package:</p>
+  <section aria-labelledby="from-users-perspective">
+    <h2 id="from-users-perspective" class="h5 mb-3">From your users' perspective</h2>
+    <p class="text-body-secondary mb-2">On the latest Ubuntu, for example, they run four commands to add the repository and install your package:</p>
 <pre class="bg-body-secondary p-3 rounded-3 mb-3"><code>$ echo 'deb https://repositories.omnipackage.org/omnipackage-rs/stable/ubuntu_26.04 stable/' | sudo tee /etc/apt/sources.list.d/omnipackage_omnipackage.list
 $ curl -fsSL https://repositories.omnipackage.org/omnipackage-rs/stable/ubuntu_26.04/stable/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/omnipackage_omnipackage.gpg > /dev/null
 $ sudo apt-get update
 $ sudo apt-get install omnipackage</code></pre>
-  <p class="text-body-secondary mb-5">Users do this once. From then on, updates to your software arrive through <code>apt upgrade</code> alongside everything else from the official Ubuntu repos — no extra steps, no separate updater. The same applies on Debian, Fedora, openSUSE, and the other supported distros, each through its native package manager.</p>
+    <p class="text-body-secondary mb-5">Users do this once. From then on, updates to your software arrive through <code>apt upgrade</code> alongside everything else from the official Ubuntu repos — no extra steps, no separate updater. The same applies on Debian, Fedora, openSUSE, and the other supported distros, each through its native package manager.</p>
+  </section>
 
-  <h2 class="mb-4">Supported distros</h2>
+  <section aria-labelledby="supported-distros-heading">
+    <h2 id="supported-distros-heading" class="mb-4">Supported distros</h2>
 
-  <div id="supported-distros" class="mb-3">
-    <p class="text-body-secondary"><span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Loading supported distros…</p>
-  </div>
+    <div id="supported-distros" class="mb-3">
+      <p class="text-body-secondary"><span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Loading supported distros…</p>
+    </div>
 
-  <p class="text-body-secondary small mb-5">Fetched live from <a href="https://github.com/omnipackage/omnipackage-rs/blob/master/src/distros.yml" target="_blank"><code>distros.yml</code></a> in the OmniPackage repo.</p>
+    <p class="text-body-secondary small mb-5">Fetched live from <a href="{{ site.github_repo_url }}/blob/master/src/distros.yml" target="_blank" rel="noopener"><code>distros.yml</code></a> in the OmniPackage repo.</p>
 
-  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js" crossorigin="anonymous"></script>
-  <script src="/assets/js/supported_distros.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js" crossorigin="anonymous" defer></script>
+    <script src="/assets/js/supported_distros.js" defer></script>
+  </section>
 
-  <h2 class="mb-3">No vendor lock-in</h2>
-  <ul class="list-unstyled mb-5">
-    <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i><a href="{{ site.github_url }}" target="_blank">Open source</a> and not tied to any cloud or hosting provider</li>
-    <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i>Use your own S3 bucket for repositories — AWS or any compatible self-hosted service</li>
-    <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i>No subscriptions, registrations, or credit cards</li>
-  </ul>
+  <section aria-labelledby="no-lock-in">
+    <h2 id="no-lock-in" class="mb-3">No vendor lock-in</h2>
+    <ul class="list-unstyled mb-5">
+      <li class="mb-2"><i class="bi bi-check2 text-success me-2" aria-hidden="true"></i><a href="{{ site.github_url }}" target="_blank" rel="noopener">Open source</a> and not tied to any cloud or hosting provider</li>
+      <li class="mb-2"><i class="bi bi-check2 text-success me-2" aria-hidden="true"></i>Use your own S3 bucket for repositories — AWS or any compatible self-hosted service</li>
+      <li class="mb-2"><i class="bi bi-check2 text-success me-2" aria-hidden="true"></i>No subscriptions, registrations, or credit cards</li>
+    </ul>
+  </section>
 
-  <h2>Projects using OmniPackage</h2>
-  <ul>
-    <li>
-      <a href="https://repositories.omnipackage.org/mpz/stable/install.html" target="_blank" class="btn btn-link btn-lg">mpz - music player for big local collections</a>
-    </li>
-  </ul>
+  <section aria-labelledby="projects-using">
+    <h2 id="projects-using">Projects using OmniPackage</h2>
+    <ul>
+      <li>
+        <a href="https://repositories.omnipackage.org/mpz/stable/install.html" target="_blank" rel="noopener" class="btn btn-link btn-lg">mpz — music player for big local collections</a>
+      </li>
+    </ul>
+  </section>
 
 </div>
+</article>
