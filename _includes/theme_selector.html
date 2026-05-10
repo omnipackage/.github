@@ -5,25 +5,25 @@
           aria-expanded="false"
           data-bs-toggle="dropdown"
           aria-label="Toggle theme (auto)">
-    <i class="bi bi-circle-half me-2 opacity-50"></i>
+    {% include icons/circle-half.svg.html class="me-2 opacity-50" %}
     <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
   </button>
   <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
     <li>
       <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-        <i class="bi bi-sun-fill me-2 opacity-50"></i>
+        {% include icons/sun-fill.svg.html class="me-2 opacity-50" %}
         Light
       </button>
     </li>
     <li>
       <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-        <i class="bi bi-moon-stars-fill me-2 opacity-50"></i>
+        {% include icons/moon-stars-fill.svg.html class="me-2 opacity-50" %}
         Dark
       </button>
     </li>
     <li>
       <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
-        <i class="bi bi-circle-half me-2 opacity-50"></i>
+        {% include icons/circle-half.svg.html class="me-2 opacity-50" %}
         Auto
       </button>
     </li>

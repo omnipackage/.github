@@ -1,0 +1,60 @@
+/*
+  Brand primary = logo green (#274e13).
+
+  Bootstrap 5.3 ships components with the primary color compiled-in as a literal
+  hex, so a single :root override only reaches utilities (.text-primary,
+  .bg-primary, .text-bg-primary, .border-primary). Components like .btn-primary
+  need their own per-component variable override. Without an SCSS build, this is
+  the closest to a single-source override we can get.
+*/
+
+:root {
+  --bs-primary: #274e13;
+  --bs-primary-rgb: 39, 78, 19;
+  --bs-primary-text-emphasis: #19320c;
+  --bs-primary-bg-subtle: #d4e0cd;
+  --bs-primary-border-subtle: #a9c19a;
+}
+
+[data-bs-theme="dark"] {
+  --bs-primary: #8cba6a;
+  --bs-primary-rgb: 140, 186, 106;
+  --bs-primary-text-emphasis: #b3d499;
+  --bs-primary-bg-subtle: #19320c;
+  --bs-primary-border-subtle: #274e13;
+}
+
+.btn-primary {
+  --bs-btn-bg: #274e13;
+  --bs-btn-border-color: #274e13;
+  --bs-btn-hover-bg: #1d3b0e;
+  --bs-btn-hover-border-color: #19320c;
+  --bs-btn-active-bg: #19320c;
+  --bs-btn-active-border-color: #16290a;
+  --bs-btn-disabled-bg: #274e13;
+  --bs-btn-disabled-border-color: #274e13;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: #274e13;
+  --bs-btn-border-color: #274e13;
+  --bs-btn-hover-bg: #274e13;
+  --bs-btn-hover-border-color: #274e13;
+  --bs-btn-active-bg: #274e13;
+  --bs-btn-active-border-color: #274e13;
+  --bs-btn-disabled-color: #274e13;
+  --bs-btn-disabled-border-color: #274e13;
+}
+
+[data-bs-theme="dark"] .btn-outline-primary {
+  --bs-btn-color: #8cba6a;
+  --bs-btn-border-color: #8cba6a;
+  --bs-btn-hover-bg: #8cba6a;
+  --bs-btn-hover-border-color: #8cba6a;
+  --bs-btn-hover-color: #142a09;
+  --bs-btn-active-bg: #8cba6a;
+  --bs-btn-active-border-color: #8cba6a;
+  --bs-btn-active-color: #142a09;
+  --bs-btn-disabled-color: #8cba6a;
+  --bs-btn-disabled-border-color: #8cba6a;
+}
