@@ -109,9 +109,6 @@ json_ld: >-
   <a href="{{ site.github_repo_url }}/blob/master/LICENSE.txt" target="_blank" rel="noopener">
     <img src="https://img.shields.io/github/license/{{ site.github_repo }}?style=flat&amp;cacheSeconds=300" alt="License: {{ site.license }}" loading="lazy" height="20">
   </a>
-  <a href="{{ site.github_repo_url }}/releases" target="_blank" rel="noopener">
-    <img src="https://img.shields.io/github/v/release/{{ site.github_repo }}?display_name=tag&amp;label=release&amp;style=flat" alt="Latest release" loading="lazy" height="20">
-  </a>
   <a href="{{ site.github_repo_url }}/actions/workflows/ci.yml" target="_blank" rel="noopener">
     <img src="https://img.shields.io/github/actions/workflow/status/{{ site.github_repo }}/ci.yml?label=CI&amp;style=flat" alt="CI status" loading="lazy" height="20">
   </a>
@@ -132,7 +129,7 @@ json_ld: >-
   </p>
 
   <p class="mb-2 text-body-secondary">One command to build, sign, and publish your packages:</p>
-<pre class="bg-body-secondary p-3 rounded-3 mb-5"><code>$ omnipackage release ~/projects/my-awesome-project</code></pre>
+<pre class="bg-body-secondary p-3 rounded-3 mb-5"><code>omnipackage release ~/projects/my-awesome-project</code></pre>
 
   <section aria-labelledby="how-it-works">
     <h2 id="how-it-works" class="mb-4">How it works</h2>
@@ -164,10 +161,10 @@ json_ld: >-
   <section aria-labelledby="from-users-perspective">
     <h2 id="from-users-perspective" class="h5 mb-3">From your users' perspective</h2>
     <p class="text-body-secondary mb-2">On the latest Ubuntu, for example, they run four commands to add the repository and install your package:</p>
-<pre class="bg-body-secondary p-3 rounded-3 mb-3"><code>$ echo 'deb https://repositories.omnipackage.org/omnipackage-rs/stable/ubuntu_26.04 stable/' | sudo tee /etc/apt/sources.list.d/omnipackage_omnipackage.list
-$ curl -fsSL https://repositories.omnipackage.org/omnipackage-rs/stable/ubuntu_26.04/stable/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/omnipackage_omnipackage.gpg > /dev/null
-$ sudo apt-get update
-$ sudo apt-get install omnipackage</code></pre>
+<pre class="bg-body-secondary p-3 rounded-3 mb-3"><code>echo 'deb https://repositories.omnipackage.org/omnipackage-rs/stable/ubuntu_26.04 stable/' | sudo tee /etc/apt/sources.list.d/omnipackage_omnipackage.list
+curl -fsSL https://repositories.omnipackage.org/omnipackage-rs/stable/ubuntu_26.04/stable/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/omnipackage_omnipackage.gpg > /dev/null
+sudo apt-get update
+sudo apt-get install omnipackage</code></pre>
     <p class="text-body-secondary mb-5">Users do this once. From then on, updates to your software arrive through <code>apt upgrade</code> alongside everything else from the official Ubuntu repos — no extra steps, no separate updater. The same applies on Debian, Fedora, openSUSE, and the other supported distros, each through its native package manager.</p>
   </section>
 

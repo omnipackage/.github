@@ -36,7 +36,6 @@ install_stable_url: "https://repositories.omnipackage.org/omnipackage-rs/stable/
 install_master_url: "https://repositories.omnipackage.org/omnipackage-rs/master/install.html"
 repo_badge_stable_url: "https://repositories.omnipackage.org/omnipackage-rs/stable/badge.svg"
 repo_badge_master_url: "https://repositories.omnipackage.org/omnipackage-rs/master/badge.svg"
-software_version: "0.1.7"
 license: "GPL-3.0"
 locale: en_US
 author: Oleg Antonyan
