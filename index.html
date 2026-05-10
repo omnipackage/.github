@@ -32,6 +32,59 @@ json_ld: >-
         "text": "Share the install page generated alongside the packages so your users can add the repository and install your software with apt, dnf, or zypper."
       }
     ]
+  },
+  {
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does OmniPackage require Docker?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Podman works too and is recommended — it is the most-tested runtime. Docker is supported as well. Either is auto-detected; you can force one with the --container-runtime flag."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I distribute proprietary software with OmniPackage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Unlike official distro repositories, your own OmniPackage repository can host any binaries you want, including closed-source ones."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is OmniPackage different from Snap, Flatpak, or AppImage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Snap and Flatpak ship their own runtimes; AppImage bundles dependencies. OmniPackage builds native RPM and DEB packages so users install with apt, dnf, or zypper — no extra runtime, no sandbox, no separate installer. Updates arrive through the system package manager alongside everything else."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What architectures does OmniPackage support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "x86_64 today."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I host the repository on AWS, Cloudflare R2, or MinIO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. OmniPackage uploads to any S3-compatible storage. Cloudflare R2 is recommended for free egress; AWS S3 and MinIO also work, as does any other S3-compatible service."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is OmniPackage free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. OmniPackage is free and open-source software, licensed under GPL-3.0."
+        }
+      }
+    ]
   }
 ---
 
@@ -152,6 +205,29 @@ $ sudo apt-get install omnipackage</code></pre>
       </li>
     </ul>
   </section>
+
+  <details class="mt-5">
+    <summary class="text-body-secondary small">Frequently asked questions</summary>
+    <div class="mt-3 small">
+      <p><strong>Does OmniPackage require Docker?</strong><br>
+      No. Podman works too and is recommended — it is the most-tested runtime. Docker is supported as well. Either is auto-detected; you can force one with the <code>--container-runtime</code> flag.</p>
+
+      <p><strong>Can I distribute proprietary software with OmniPackage?</strong><br>
+      Yes. Unlike official distro repositories, your own OmniPackage repository can host any binaries you want, including closed-source ones.</p>
+
+      <p><strong>How is OmniPackage different from Snap, Flatpak, or AppImage?</strong><br>
+      Snap and Flatpak ship their own runtimes; AppImage bundles dependencies. OmniPackage builds native RPM and DEB packages so users install with <code>apt</code>, <code>dnf</code>, or <code>zypper</code> — no extra runtime, no sandbox, no separate installer. Updates arrive through the system package manager alongside everything else.</p>
+
+      <p><strong>What architectures does OmniPackage support?</strong><br>
+      <code>x86_64</code> today.</p>
+
+      <p><strong>Can I host the repository on AWS, Cloudflare R2, or MinIO?</strong><br>
+      Yes. OmniPackage uploads to any S3-compatible storage. Cloudflare R2 is recommended for free egress; AWS S3 and MinIO also work, as does any other S3-compatible service.</p>
+
+      <p><strong>Is OmniPackage free?</strong><br>
+      Yes. OmniPackage is free and open-source software, licensed under GPL-3.0.</p>
+    </div>
+  </details>
 
 </div>
 </article>
