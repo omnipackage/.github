@@ -191,14 +191,23 @@ sudo apt-get install omnipackage</code></pre>
     </ul>
   </section>
 
+  <section aria-labelledby="not-do">
+    <h2 id="not-do" class="mb-3">What OmniPackage doesn't do</h2>
+    <ul class="list-unstyled mb-5">
+      <li class="mb-2">{% include icons/x.svg.html class="text-danger me-2" %}Build new package formats. RPM and DEB only — Flatpak, Snap, AppImage, AUR, and Nix are different bets.</li>
+      <li class="mb-2">{% include icons/x.svg.html class="text-danger me-2" %}Host your repository. You bring the bucket — the trade-off is no vendor lock-in and your packages live in storage you control.</li>
+      <li class="mb-2">{% include icons/x.svg.html class="text-danger me-2" %}Sandbox installed software. Packages run with the same privileges any <code>apt install</code> package gets — there's no Flatpak-style isolation unless you ship it as part of your package (e.g. an AppArmor / SELinux profile, or a <code>bwrap</code> / <code>firejail</code> wrapper around your binary).</li>
+    </ul>
+  </section>
+
   <section aria-labelledby="projects-using">
     <h2 id="projects-using">Projects using OmniPackage</h2>
     <ul>
-      <li>
-        <a href="{{ site.install_stable_url }}" target="_blank" rel="noopener" class="btn btn-link btn-lg">OmniPackage — itself, distributed via OmniPackage</a>
+      <li class="mb-2">
+        <a href="{{ site.install_stable_url }}" target="_blank" rel="noopener">OmniPackage — itself, distributed via OmniPackage</a>
       </li>
-      <li>
-        <a href="https://repositories.omnipackage.org/mpz/stable/install.html" target="_blank" rel="noopener" class="btn btn-link btn-lg">mpz — music player for big local collections</a>
+      <li class="mb-2">
+        <a href="https://repositories.omnipackage.org/mpz/stable/install.html" target="_blank" rel="noopener">mpz — music player for big local collections</a>
       </li>
     </ul>
   </section>
