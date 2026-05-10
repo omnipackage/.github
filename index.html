@@ -36,8 +36,8 @@ json_ld: >-
 ---
 
 <article>
-<header class="p-5 mb-4 bg-body-tertiary rounded-3">
-  <div class="container-fluid py-5">
+<header class="p-3 p-md-5 mb-4 bg-body-tertiary rounded-3">
+  <div class="container-fluid py-4 py-md-5">
     <h1 class="display-6 fw-bold mb-4">Build and distribute your own RPM and DEB packages — with your own repository</h1>
 
     <p class="col-md-8 lead mb-3">We had centralized software repositories long before the App Store. Why is distributing software for Linux still so hard? OmniPackage makes it easy.</p>
@@ -50,7 +50,7 @@ json_ld: >-
   </div>
 </header>
 
-<div class="p-5 mb-4">
+<div class="px-0 py-4 px-md-5 py-md-5 mb-4">
   <p class="lead mb-4">
     OmniPackage helps you create RPM spec files and similar sets of files for DEB. For building, it spawns <code>rpmbuild</code> and <code>dpkg-buildpackage</code> inside containers for each supported distro. After building, it signs the packages via GPG key and uploads them to S3-compatible storage, which serves as a repository. Finally, it generates a web page with instructions on how to add the repository and install your package. You can share a link to this page with your users.
   </p>
