@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Linux packaging made easy
+title: Build RPM and DEB packages and host your own Linux repository
 description: >-
-  OmniPackage is an open source CLI for building and distributing your own
-  RPM and DEB packages for Debian, Ubuntu, Fedora, openSUSE, AlmaLinux,
-  Rocky Linux, and Mageia. Sign with GPG, host your repository on any
-  S3-compatible storage, and let users install via their native package
-  manager. Runs in GitHub Actions or locally.
+  OmniPackage is an open source CLI for building RPM and DEB packages and
+  hosting your own apt, dnf, and zypper repository on any S3-compatible
+  storage. Supports Debian, Ubuntu, Fedora, openSUSE, AlmaLinux, Rocky
+  Linux, and Mageia. Sign with GPG and let users install with their native
+  package manager. Runs in GitHub Actions or locally.
 json_ld: >-
   {
     "@type": "HowTo",
@@ -70,10 +70,10 @@ json_ld: >-
       },
       {
         "@type": "Question",
-        "name": "Can I host the repository on AWS, Cloudflare R2, or MinIO?",
+        "name": "Can I host the apt or yum repository on AWS, Cloudflare R2, or MinIO?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. OmniPackage uploads to any S3-compatible storage. Cloudflare R2 is recommended for free egress; AWS S3 and MinIO also work, as does any other S3-compatible service."
+          "text": "Yes. OmniPackage uploads to any S3-compatible storage. Cloudflare R2 is recommended for free egress; AWS S3 and MinIO also work, as does any other S3-compatible service. The bucket serves as a self-hosted apt, dnf, or zypper repository."
         }
       },
       {
@@ -95,7 +95,7 @@ json_ld: >-
 
     <p class="col-md-8 lead mb-3">We had centralized software repositories long before the App Store. Why is distributing software for Linux still so hard? OmniPackage makes it easy.</p>
 
-    <p class="col-md-8 lead mb-4">Create RPM and DEB packages for many distros using native package managers. Runs on GitHub Actions, your laptop, or anywhere else.</p>
+    <p class="col-md-8 lead mb-4">Create RPM and DEB packages for many distros and publish them to a self-hosted apt, dnf, or zypper repository on any S3-compatible storage. Runs on GitHub Actions, your laptop, or anywhere else.</p>
 
     <div class="cta-group d-flex flex-wrap gap-2">
       <a href="{{ site.getting_started_url }}" target="_blank" class="btn btn-lg btn-primary">Get started</a>
@@ -127,7 +127,7 @@ json_ld: >-
 
 <div class="px-0 py-4 px-md-5 py-md-5 mb-4">
   <p class="lead mb-4">
-    OmniPackage helps you create RPM spec files and similar sets of files for DEB. For building, it spawns <code>rpmbuild</code> and <code>dpkg-buildpackage</code> inside containers for each supported distro. After building, it signs the packages via GPG key and uploads them to S3-compatible storage, which serves as a repository. Finally, it generates a web page with instructions on how to add the repository and install your package. You can share a link to this page with your users.
+    OmniPackage helps you create RPM spec files and similar sets of files for DEB. For building, it spawns <code>rpmbuild</code> and <code>dpkg-buildpackage</code> inside containers for each supported distro. After building, it signs the packages with your GPG key and uploads them to S3-compatible storage, which serves as a self-hosted apt, dnf, and zypper repository. Finally, it generates a web page with instructions on how to add the repository and install your package. You can share a link to this page with your users.
   </p>
 
   <p class="mb-2 text-body-secondary">One command to build, sign, and publish your packages:</p>
@@ -229,8 +229,8 @@ sudo apt-get install omnipackage</code></pre>
       <p><strong>What architectures does OmniPackage support?</strong><br>
       <code>x86_64</code> today.</p>
 
-      <p><strong>Can I host the repository on AWS, Cloudflare R2, or MinIO?</strong><br>
-      Yes. OmniPackage uploads to any S3-compatible storage. Cloudflare R2 is recommended for free egress; AWS S3 and MinIO also work, as does any other S3-compatible service.</p>
+      <p><strong>Can I host the apt or yum repository on AWS, Cloudflare R2, or MinIO?</strong><br>
+      Yes. OmniPackage uploads to any S3-compatible storage. Cloudflare R2 is recommended for free egress; AWS S3 and MinIO also work, as does any other S3-compatible service. The bucket serves as a self-hosted apt, dnf, or zypper repository.</p>
 
       <p><strong>Is OmniPackage free?</strong><br>
       Yes. OmniPackage is free and open-source software, licensed under GPL-3.0.</p>
