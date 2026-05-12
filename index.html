@@ -2,11 +2,8 @@
 layout: default
 title: Build RPM and DEB packages and host your own Linux repository
 description: >-
-  OmniPackage is an open source CLI for building RPM and DEB packages and
-  hosting your own apt, dnf, and zypper repository on any S3-compatible
-  storage. Supports Debian, Ubuntu, Fedora, openSUSE, AlmaLinux, Rocky
-  Linux, and Mageia. Sign with GPG and let users install with their native
-  package manager. Runs in GitHub Actions or locally.
+  OmniPackage is an open-source CLI that builds RPM and DEB packages and
+  hosts your own apt, dnf, and zypper repository on any S3-compatible storage.
 json_ld: >-
   {
     "@type": "HowTo",
@@ -127,7 +124,7 @@ json_ld: >-
 
 <div class="px-0 py-4 px-md-5 py-md-5 mb-4">
   <p class="lead mb-4">
-    OmniPackage helps you create RPM spec files and similar sets of files for DEB. For building, it spawns <code>rpmbuild</code> and <code>dpkg-buildpackage</code> inside containers for each supported distro. After building, it signs the packages with your GPG key and uploads them to S3-compatible storage, which serves as a self-hosted apt, dnf, and zypper repository. Finally, it generates a web page with instructions on how to add the repository and install your package. You can share a link to this page with your users.
+    OmniPackage is an open-source CLI that builds RPM and DEB packages and publishes them to your own apt, dnf, or zypper repository on S3-compatible storage. It helps you scaffold an RPM spec file and the equivalent files for DEB, then spawns <code>rpmbuild</code> and <code>dpkg-buildpackage</code> inside containers for each supported distro. Packages are signed with your GPG key and uploaded to your bucket, which serves as a self-hosted repository. It also generates a web page with instructions for users to add the repository and install your software — share the link, and they're done.
   </p>
 
   <p class="mb-2 text-body-secondary">One command to build, sign, and publish your packages:</p>
