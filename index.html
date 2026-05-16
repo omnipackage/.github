@@ -62,7 +62,7 @@ json_ld: >-
         "name": "What architectures does OmniPackage support?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "x86_64 today."
+          "text": "Packages are built for the host's architecture. All supported base images except Mageia are multiarch, so both x86_64 and ARM64 work — run OmniPackage on the architecture you want the packages to target."
         }
       },
       {
@@ -169,7 +169,7 @@ sudo apt-get install omnipackage</code></pre>
 
   <section aria-labelledby="supported-distros-heading">
     <h2 id="supported-distros-heading" class="mb-2">Supported distros</h2>
-    <p class="text-body-secondary mb-4">All packages are built for <code>x86_64</code>.</p>
+    <p class="text-body-secondary mb-4">Packages are built for the architecture of the build host. All supported base images except Mageia are multiarch, so both <code>x86_64</code> and <code>ARM64</code> work.</p>
 
     <div id="supported-distros" class="mb-3">
       <p class="text-body-secondary"><span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Loading supported distros…</p>
@@ -224,7 +224,7 @@ sudo apt-get install omnipackage</code></pre>
       Snap and Flatpak ship their own runtimes; AppImage bundles dependencies. OmniPackage builds native RPM and DEB packages so users install with <code>apt</code>, <code>dnf</code>, or <code>zypper</code> — no extra runtime, no sandbox, no separate installer. Updates arrive through the system package manager alongside everything else.</p>
 
       <p><strong>What architectures does OmniPackage support?</strong><br>
-      <code>x86_64</code> today.</p>
+      Packages are built for the host's architecture. All supported base images except Mageia are multiarch, so both <code>x86_64</code> and <code>ARM64</code> work — run OmniPackage on the architecture you want the packages to target.</p>
 
       <p><strong>Can I host the apt or yum repository on AWS, Cloudflare R2, or MinIO?</strong><br>
       Yes. OmniPackage uploads to any S3-compatible storage. Cloudflare R2 is recommended for free egress; AWS S3 and MinIO also work, as does any other S3-compatible service. The bucket serves as a self-hosted apt, dnf, or zypper repository.</p>
