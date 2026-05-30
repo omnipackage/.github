@@ -27,7 +27,7 @@ description: >-
   storage. Runs in CI, on your laptop, or anywhere else.
 url: "https://omnipackage.org"
 docs_url: "https://docs.omnipackage.org"
-github_url: "https://github.com/omnipackage"
+github_org_url: "https://github.com/omnipackage"
 github_repo_url: "https://github.com/omnipackage/omnipackage-rs"
 github_repo: "omnipackage/omnipackage-rs"
 producthunt_url: "#"
