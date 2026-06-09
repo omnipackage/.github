@@ -45,7 +45,7 @@ OmniPackage offers a streamlined workflow for building and distributing packages
 
 1. Makes it easier to create files necessary for building RPM and DEB packages (`omnipackage` cli tool that helps you create spec files);
 2. Builds those packages for multiple distros (spawns `rpmbuild` or `dpkg-buildpackage` for each distro inside a container);
-3. Creates and manages repositories for those packages (sign packages and upload them to the S3 bucket, which serves as a respository).
+3. Creates and manages repositories for those packages (sign packages and publish them to an S3 bucket or a local filesystem path, which serves as a repository).
 
 Users need to add those repositories, and once they do that, they get the apt/dnf/zypper install experience with your package.
 

@@ -3,7 +3,7 @@ layout: default
 title: Build RPM and DEB packages and host your own Linux repository
 description: >-
   OmniPackage is an open-source CLI that builds RPM and DEB packages and
-  hosts your own apt, dnf, and zypper repository on any S3-compatible storage.
+  hosts your own apt, dnf, and zypper repository on any S3-compatible storage or your local filesystem.
 json_ld: >-
   {
     "@type": "HowTo",
@@ -20,7 +20,7 @@ json_ld: >-
         "@type": "HowToStep",
         "position": 2,
         "name": "Release",
-        "text": "Provide S3 credentials and a few config options, then run omnipackage release. Packages are built in containers for each distro, signed with your GPG key, and uploaded to your bucket."
+        "text": "Point OmniPackage at an S3-compatible bucket or a local filesystem path, set a few config options, then run omnipackage release. Packages are built in containers for each distro, signed with your GPG key, and published to your repository."
       },
       {
         "@type": "HowToStep",
@@ -70,7 +70,7 @@ json_ld: >-
         "name": "Can I host the apt or yum repository on AWS, Cloudflare R2, or MinIO?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. OmniPackage uploads to any S3-compatible storage. Cloudflare R2 is recommended for free egress; AWS S3 and MinIO also work, as does any other S3-compatible service. The bucket serves as a self-hosted apt, dnf, or zypper repository."
+          "text": "Yes. OmniPackage publishes to any S3-compatible storage or a local filesystem path. Cloudflare R2 is recommended for free egress; AWS S3 and MinIO also work, as does any other S3-compatible service. The bucket (or local directory) serves as a self-hosted apt, dnf, or zypper repository."
         }
       },
       {
@@ -92,7 +92,7 @@ json_ld: >-
 
     <p class="col-md-8 lead mb-3">We had centralized software repositories long before the App Store. Why is distributing software for Linux still so hard? OmniPackage makes it easy.</p>
 
-    <p class="col-md-8 lead mb-4">Create RPM and DEB packages for many distros and publish them to a self-hosted apt, dnf, or zypper repository on any S3-compatible storage. Runs on GitHub Actions, your laptop, or anywhere else.</p>
+    <p class="col-md-8 lead mb-4">Create RPM and DEB packages for many distros and publish them to a self-hosted apt, dnf, or zypper repository on any S3-compatible storage or your local filesystem. Runs on GitHub Actions, your laptop, or anywhere else.</p>
 
     <div class="cta-group d-flex flex-wrap gap-2">
       <a href="{{ site.getting_started_url }}" target="_blank" class="btn btn-lg btn-primary">Get started</a>
@@ -124,7 +124,7 @@ json_ld: >-
 
 <div class="px-0 py-4 px-md-5 py-md-5 mb-4">
   <p class="lead mb-4">
-    OmniPackage is an open-source CLI that builds RPM and DEB packages and publishes them to your own apt, dnf, or zypper repository on S3-compatible storage. It helps you scaffold an RPM spec file and the equivalent files for DEB, then spawns <code>rpmbuild</code> and <code>dpkg-buildpackage</code> inside containers for each supported distro. Packages are signed with your GPG key and uploaded to your bucket, which serves as a self-hosted repository. It also generates a web page with instructions for users to add the repository and install your software — share the link, and they're done.
+    OmniPackage is an open-source CLI that builds RPM and DEB packages and publishes them to your own apt, dnf, or zypper repository on S3-compatible storage or your local filesystem. It helps you scaffold an RPM spec file and the equivalent files for DEB, then spawns <code>rpmbuild</code> and <code>dpkg-buildpackage</code> inside containers for each supported distro. Packages are signed with your GPG key and uploaded to your bucket or local directory, which serves as a self-hosted repository. It also generates a web page with instructions for users to add the repository and install your software — share the link, and they're done.
   </p>
 
   <p class="mb-2 text-body-secondary">One command to build, sign, and publish your packages:</p>
@@ -145,7 +145,7 @@ json_ld: >-
           <span class="badge rounded-pill text-bg-primary me-2">2</span>
           <h3 class="h5 mb-0">Release</h3>
         </div>
-        <p class="text-body-secondary mb-0">Fill in your S3 credentials and a few other config options, then run <code>omnipackage release</code>. Packages are built in containers for each distro, signed with your GPG key, and uploaded to your bucket.</p>
+        <p class="text-body-secondary mb-0">Fill in your storage details — an S3-compatible bucket or a local filesystem path — and a few other config options, then run <code>omnipackage release</code>. Packages are built in containers for each distro, signed with your GPG key, and published to your repository.</p>
       </li>
       <li class="col-md-4">
         <div class="d-flex align-items-center mb-2">
@@ -185,7 +185,7 @@ sudo apt-get install omnipackage</code></pre>
     <h2 id="no-lock-in" class="mb-3">No vendor lock-in</h2>
     <ul class="list-unstyled mb-5">
       <li class="mb-2">{% include icons/check2.svg.html class="text-success me-2" %}<a href="{{ site.github_repo_url }}" target="_blank" rel="noopener">Open source</a> and not tied to any cloud or hosting provider</li>
-      <li class="mb-2">{% include icons/check2.svg.html class="text-success me-2" %}Use your own S3 bucket for repositories — AWS S3, Cloudflare R2 (recommended for free egress), MinIO, or any S3-compatible service</li>
+      <li class="mb-2">{% include icons/check2.svg.html class="text-success me-2" %}Host repositories on your own S3 bucket — AWS S3, Cloudflare R2 (recommended for free egress), MinIO, or any S3-compatible service — or a local filesystem path</li>
       <li class="mb-2">{% include icons/check2.svg.html class="text-success me-2" %}No subscriptions, registrations, or credit cards</li>
     </ul>
   </section>
@@ -194,7 +194,7 @@ sudo apt-get install omnipackage</code></pre>
     <h2 id="not-do" class="mb-3">What OmniPackage doesn't do</h2>
     <ul class="list-unstyled mb-5">
       <li class="mb-2">{% include icons/x.svg.html class="text-danger me-2" %}Build new package formats. RPM and DEB only — Flatpak, Snap, AppImage, AUR, and Nix are different bets.</li>
-      <li class="mb-2">{% include icons/x.svg.html class="text-danger me-2" %}Host your repository. You bring the bucket — the trade-off is no vendor lock-in and your packages live in storage you control.</li>
+      <li class="mb-2">{% include icons/x.svg.html class="text-danger me-2" %}Host your repository. You bring the storage — an S3 bucket or a local filesystem path — the trade-off is no vendor lock-in and your packages live in storage you control.</li>
       <li class="mb-2">{% include icons/x.svg.html class="text-danger me-2" %}Sandbox installed software. Packages run with the same privileges any <code>apt install</code> package gets — there's no Flatpak-style isolation unless you ship it as part of your package (e.g. an AppArmor / SELinux profile, or a <code>bwrap</code> / <code>firejail</code> wrapper around your binary).</li>
     </ul>
   </section>
@@ -227,7 +227,7 @@ sudo apt-get install omnipackage</code></pre>
       Packages are built for the host's architecture. All supported base images except Mageia are multiarch, so both <code>x86_64</code> and <code>ARM64</code> work — run OmniPackage on the architecture you want the packages to target.</p>
 
       <p><strong>Can I host the apt or yum repository on AWS, Cloudflare R2, or MinIO?</strong><br>
-      Yes. OmniPackage uploads to any S3-compatible storage. Cloudflare R2 is recommended for free egress; AWS S3 and MinIO also work, as does any other S3-compatible service. The bucket serves as a self-hosted apt, dnf, or zypper repository.</p>
+      Yes. OmniPackage publishes to any S3-compatible storage or a local filesystem path. Cloudflare R2 is recommended for free egress; AWS S3 and MinIO also work, as does any other S3-compatible service. The bucket (or local directory) serves as a self-hosted apt, dnf, or zypper repository.</p>
 
       <p><strong>Is OmniPackage free?</strong><br>
       Yes. OmniPackage is free and open-source software, licensed under GPL-3.0.</p>

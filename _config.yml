@@ -24,7 +24,7 @@ description: >-
   OmniPackage is an open source tool for building and distributing your own
   RPM and DEB packages for Linux. Build for many distros using native package
   managers, sign with GPG, and host your own repository on any S3-compatible
-  storage. Runs in CI, on your laptop, or anywhere else.
+  storage or your local filesystem. Runs in CI, on your laptop, or anywhere else.
 url: "https://omnipackage.org"
 docs_url: "https://docs.omnipackage.org"
 github_org_url: "https://github.com/omnipackage"

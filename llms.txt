@@ -7,12 +7,12 @@ sitemap: false
 
 > {{ site.description | strip_newlines }}
 
-OmniPackage is an open source CLI tool that helps independent developers build native RPM and DEB packages for many Linux distributions and host their own software repositories on any S3-compatible storage. End users install with apt, dnf, or zypper — the native package manager — exactly like installing software from official distro repositories. There are no subscriptions, accounts, or vendor lock-in.
+OmniPackage is an open source CLI tool that helps independent developers build native RPM and DEB packages for many Linux distributions and host their own software repositories on any S3-compatible storage or a local filesystem. End users install with apt, dnf, or zypper — the native package manager — exactly like installing software from official distro repositories. There are no subscriptions, accounts, or vendor lock-in.
 
 ## How it works
 
 1. **Scaffold** — `omnipackage` generates an RPM spec file and the equivalent files for DEB packaging.
-2. **Release** — `omnipackage release` builds packages for each target distro inside a container (`rpmbuild` or `dpkg-buildpackage`), signs them with your GPG key, and uploads them to your S3 bucket. The bucket serves as the repository.
+2. **Release** — `omnipackage release` builds packages for each target distro inside a container (`rpmbuild` or `dpkg-buildpackage`), signs them with your GPG key, and publishes them to an S3 bucket or a local filesystem path. That storage serves as the repository.
 3. **Share** — alongside the packages, OmniPackage generates an install page with copy-paste commands. Users run those once to add the repository, then receive updates through their normal package manager.
 
 ## Supported distros

@@ -5,7 +5,8 @@ permalink: /privacy
 description: >-
   OmniPackage's landing site has no analytics, no cookies, no accounts, no
   tracking. The CLI tool runs locally and only talks to the S3 bucket you
-  configure. Third-party requests are limited to GitHub Pages (origin),
+  configure — or nothing at all, if you publish to a local filesystem.
+  Third-party requests are limited to GitHub Pages (origin),
   Cloudflare (proxy), jsDelivr, raw.githubusercontent.com, and shields.io.
 ---
 
@@ -31,7 +32,7 @@ description: >-
 
 <h2 class="h4 mt-5">The OmniPackage tool itself</h2>
 
-<p>The <a href="{{ site.github_repo_url }}" target="_blank" rel="noopener">OmniPackage</a> CLI runs locally on your machine. It doesn't phone home, doesn't report usage, and doesn't require registration. The only network call it makes is to S3 bucket <em>you</em> configure.</p>
+<p>The <a href="{{ site.github_repo_url }}" target="_blank" rel="noopener">OmniPackage</a> CLI runs locally on your machine. It doesn't phone home, doesn't report usage, and doesn't require registration. The only network call it makes is to the S3-compatible storage <em>you</em> configure — and if you publish to a local filesystem, it makes none at all.</p>
 
 <h2 class="h4 mt-5">Changes</h2>
 
