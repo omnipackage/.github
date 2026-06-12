@@ -1,78 +1,44 @@
-/*!
- * Color mode toggler for Bootstrap's docs (https://getbootstrap.com/)
- * Copyright 2011-2023 The Bootstrap Authors
- * Licensed under the Creative Commons Attribution 3.0 Unported License.
+/*
+ * Theme toggle: cycles auto -> light -> dark, persisted in localStorage.
+ * Runs before paint to set data-theme and avoid a flash of the wrong theme.
  */
-
 (() => {
   'use strict'
 
-  const getStoredTheme = () => localStorage.getItem('theme')
-  const setStoredTheme = theme => localStorage.setItem('theme', theme)
+  const KEY = 'theme'
+  const MODES = ['auto', 'light', 'dark']
+  const mql = window.matchMedia('(prefers-color-scheme: dark)')
 
-  const getPreferredTheme = () => {
-    const storedTheme = getStoredTheme()
-    if (storedTheme) {
-      return storedTheme
-    }
+  const storedMode = () => localStorage.getItem(KEY) || 'auto'
+  const resolve = mode => (mode === 'auto' ? (mql.matches ? 'dark' : 'light') : mode)
+  const apply = mode => document.documentElement.setAttribute('data-theme', resolve(mode))
 
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  // Apply immediately (this script is loaded synchronously in <head>).
+  apply(storedMode())
+
+  const reflect = mode => {
+    const btn = document.getElementById('theme-toggle')
+    if (!btn) return
+    btn.dataset.mode = mode
+    btn.setAttribute('aria-label', `Theme: ${mode} (click to change)`)
+    const label = document.getElementById('theme-label')
+    if (label) label.textContent = mode
   }
 
-  const setTheme = theme => {
-    if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.setAttribute('data-bs-theme', 'dark')
-    } else {
-      document.documentElement.setAttribute('data-bs-theme', theme)
-    }
-  }
-
-  setTheme(getPreferredTheme())
-
-  const showActiveTheme = (theme, focus = false) => {
-    const themeSwitcher = document.querySelector('#bd-theme')
-
-    if (!themeSwitcher) {
-      return
-    }
-
-    const themeSwitcherText = document.querySelector('#bd-theme-text')
-
-    const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
-
-    document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
-      element.classList.remove('active')
-      element.setAttribute('aria-pressed', 'false')
-    })
-
-    btnToActive.classList.add('active')
-    btnToActive.setAttribute('aria-pressed', 'true')
-    const themeSwitcherLabel = `${themeSwitcherText.textContent} (${btnToActive.dataset.bsThemeValue})`
-    themeSwitcher.setAttribute('aria-label', themeSwitcherLabel)
-
-    if (focus) {
-      themeSwitcher.focus()
-    }
-  }
-
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-    const storedTheme = getStoredTheme()
-    if (storedTheme !== 'light' && storedTheme !== 'dark') {
-      setTheme(getPreferredTheme())
-    }
+  // Follow the system when in auto mode.
+  mql.addEventListener('change', () => {
+    if (storedMode() === 'auto') apply('auto')
   })
 
   window.addEventListener('DOMContentLoaded', () => {
-    showActiveTheme(getPreferredTheme())
-
-    document.querySelectorAll('[data-bs-theme-value]')
-      .forEach(toggle => {
-        toggle.addEventListener('click', () => {
-          const theme = toggle.getAttribute('data-bs-theme-value')
-          setStoredTheme(theme)
-          setTheme(theme)
-          showActiveTheme(theme, true)
-        })
-      })
+    reflect(storedMode())
+    const btn = document.getElementById('theme-toggle')
+    if (!btn) return
+    btn.addEventListener('click', () => {
+      const next = MODES[(MODES.indexOf(storedMode()) + 1) % MODES.length]
+      localStorage.setItem(KEY, next)
+      apply(next)
+      reflect(next)
+    })
   })
 })()

@@ -7,12 +7,12 @@ noindex: true
 sitemap: false
 ---
 
-<div class="text-center py-5">
-  <h1 class="display-1 fw-bold">404</h1>
-  <p class="lead mb-4">That page doesn't exist.</p>
-  <p class="mb-4">
-    <a href="/" class="btn btn-primary me-2">Back to home</a>
-    <a href="{{ site.docs_url }}" class="btn btn-outline-primary me-2" target="_blank" rel="noopener">Documentation</a>
-    <a href="{{ site.github_repo_url }}" class="btn btn-outline-primary" target="_blank" rel="noopener">{% include icons/github.svg.html class="me-2" %}GitHub</a>
+<div class="error-page">
+  <h1>404</h1>
+  <p class="lead">That page doesn't exist.</p>
+  <p class="cta-group" style="justify-content:center;">
+    <a href="/" class="btn btn-primary">Back to home</a>
+    <a href="{{ site.docs_url }}" class="btn btn-outline" target="_blank" rel="noopener">Documentation</a>
+    <a href="{{ site.github_repo_url }}" class="btn btn-outline" target="_blank" rel="noopener">{% include icons/github.svg.html %}GitHub</a>
   </p>
 </div>

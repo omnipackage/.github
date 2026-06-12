@@ -1,22 +1,18 @@
-<nav class="navbar navbar-expand py-2">
-  <div class="container-fluid flex-wrap gap-2">
+<nav class="site-nav">
+  <div class="nav-inner">
 
-    <a class="navbar-brand me-2 me-md-3" href="/">
-      {% include logo_with_brand.svg.html height="36" %}
+    <a class="nav-brand" href="/">
+      {% include logo_with_brand.svg.html height="32" %}
     </a>
 
-    <ul class="navbar-nav flex-row">
-      <li class="nav-item">
-        <a class="nav-link px-2" href="/about">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link px-2" href="{{ site.getting_started_url }}" target="_blank" rel="noopener">Getting started</a>
-      </li>
+    <ul class="nav-links">
+      <li><a href="/about">about</a></li>
+      <li><a href="{{ site.getting_started_url }}" target="_blank" rel="noopener">getting-started</a></li>
     </ul>
 
-    <div class="d-flex align-items-center gap-1 ms-auto">
+    <div class="nav-right">
       {% include theme_selector.html %}
-      <a class="nav-link opacity-50 px-2" href="{{ site.github_repo_url }}" target="_blank" rel="noopener" aria-label="GitHub repository">
+      <a class="nav-icon" href="{{ site.github_repo_url }}" target="_blank" rel="noopener" aria-label="GitHub repository">
         {% include icons/github.svg.html %}
       </a>
     </div>
