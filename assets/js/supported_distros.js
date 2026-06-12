@@ -10,6 +10,8 @@
     ubuntu: 'Ubuntu',
     fedora: 'Fedora',
     mageia: 'Mageia',
+    arch: 'Arch Linux',
+    manjaro: 'Manjaro',
   };
 
   try {
@@ -33,7 +35,7 @@
       html.push('<div class="distro-card">');
       html.push('<div class="distro-head">');
       html.push('<h3 class="distro-name">');
-      html.push('<img src="/assets/images/distros/' + family + '.svg" alt="" width="20" height="20" style="flex-shrink:0;" onerror="this.style.display=\'none\'">');
+      html.push('<img src="/assets/images/distros/' + family + '.svg" alt="" width="20" height="20" style="flex-shrink:0;" onerror="this.onerror=null;this.src=\'/assets/images/distros/_fallback.svg\'">');
       html.push(label);
       html.push('</h3>');
       if (pkgType) html.push('<span class="pkg-type">' + pkgType + '</span>');
