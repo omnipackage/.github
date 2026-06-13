@@ -102,7 +102,7 @@ json_ld: >-
 
   <p class="lead">We had centralized software repositories long before the App Store. Why is distributing software for Linux still so hard? OmniPackage makes it easy.</p>
 
-  <p class="lead">Create RPM and DEB packages for many distros and publish them to a self-hosted apt, dnf, or zypper repository on any S3-compatible storage or your local filesystem. Runs on GitHub Actions, your laptop, or anywhere else.</p>
+  <p class="lead">Build RPM and DEB packages for many distros and publish them to a self-hosted apt, dnf, or zypper repository on any S3-compatible storage or local filesystem. Runs on GitHub Actions, your laptop, or anywhere.</p>
 
   <div class="cta-group">
     <a href="{{ site.getting_started_url }}" target="_blank" class="btn btn-lg btn-primary">Get started</a>
@@ -133,7 +133,7 @@ json_ld: >-
 
 <div class="content">
   <p class="lead">
-    OmniPackage is an open-source CLI that builds RPM and DEB packages and publishes them to your own apt, dnf, or zypper repository on S3-compatible storage or your local filesystem. It helps you scaffold an RPM spec file and the equivalent files for DEB, then spawns <code>rpmbuild</code> and <code>dpkg-buildpackage</code> inside containers for each supported distro. Packages are signed with your GPG key and uploaded to your bucket or local directory, which serves as a self-hosted repository. It also generates a web page with instructions for users to add the repository and install your software — share the link, and they're done.
+    OmniPackage is an open-source CLI that builds RPM and DEB packages and publishes them to your own apt, dnf, or zypper repository on S3-compatible storage or a local filesystem. It scaffolds an RPM spec file and the DEB equivalents, then runs <code>rpmbuild</code> and <code>dpkg-buildpackage</code> in containers for each supported distro. Packages are signed with your GPG key and uploaded to your bucket or directory, which serves as the repository. It also generates an install page — share the link, and your users are done.
   </p>
 
   <p class="muted" style="margin-bottom:.5rem;">One command to build, sign, and publish your packages:</p>
@@ -150,22 +150,22 @@ json_ld: >-
     <ol class="steps grid grid-3">
       <li>
         <h3><span class="step-num">01</span>Scaffold</h3>
-        <p class="muted mb-0">OmniPackage helps you scaffold an RPM spec file and the other files required for DEB and RPM packaging.</p>
+        <p class="muted mb-0">OmniPackage scaffolds an RPM spec file and the other files RPM and DEB packaging need.</p>
       </li>
       <li>
         <h3><span class="step-num">02</span>Release</h3>
-        <p class="muted mb-0">Fill in your storage details — an S3-compatible bucket or a local filesystem path — and a few other config options, then run <code>omnipackage release</code>. Packages are built in containers for each distro, signed with your GPG key, and published to your repository.</p>
+        <p class="muted mb-0">Add your storage details — an S3-compatible bucket or a local filesystem path — and a few config options, then run <code>omnipackage release</code>. Packages are built in containers for each distro, signed with your GPG key, and published to your repository.</p>
       </li>
       <li>
         <h3><span class="step-num">03</span>Share</h3>
-        <p class="muted mb-0">Share the install page generated alongside the packages so your users can add the repository and install your software with their native package manager.</p>
+        <p class="muted mb-0">Share the install page generated with the packages so users can add the repository and install with their native package manager.</p>
       </li>
     </ol>
   </section>
 
   <section aria-labelledby="from-users-perspective">
     <h2 id="from-users-perspective">From your users' perspective</h2>
-    <p class="muted">On the latest Ubuntu, for example, they run four commands to add the repository and install your package:</p>
+    <p class="muted">On the latest Ubuntu, for example, four commands add the repository and install your package:</p>
     <div class="terminal">
       <div class="terminal-bar">
         <span class="terminal-title">user@ubuntu:~$</span>
@@ -176,12 +176,12 @@ curl -fsSL https://repositories.omnipackage.org/omnipackage-rs/stable/ubuntu_26.
 sudo apt-get update
 sudo apt-get install omnipackage</code></pre>
     </div>
-    <p class="muted">Users do this once. From then on, updates to your software arrive through <code>apt upgrade</code> alongside everything else from the official Ubuntu repos — no extra steps, no separate updater. The same applies on Debian, Fedora, openSUSE, and the other supported distros, each through its native package manager.</p>
+    <p class="muted">Users do this once. After that, updates arrive through <code>apt upgrade</code> alongside everything else from the official Ubuntu repos — no extra steps, no separate updater. The same applies on Debian, Fedora, openSUSE, and the other supported distros, each through its native package manager.</p>
   </section>
 
   <section aria-labelledby="supported-distros-heading">
     <h2 id="supported-distros-heading">Supported distros</h2>
-    <p class="muted">Packages are built for the architecture of the build host. All supported base images except Mageia are multiarch, so both <code>x86_64</code> and <code>ARM64</code> work.</p>
+    <p class="muted">Packages are built for the build host's architecture. All supported base images except Mageia are multiarch, so both <code>x86_64</code> and <code>ARM64</code> work.</p>
 
     <div id="supported-distros">
       <p class="muted"><span class="spinner" role="status" aria-hidden="true"></span>Loading supported distros…</p>
@@ -206,8 +206,8 @@ sudo apt-get install omnipackage</code></pre>
     <h2 id="not-do">What OmniPackage doesn't do</h2>
     <ul class="feature-list">
       <li>{% include icons/x.svg.html class="ico-no" %}<span>Build new package formats. RPM and DEB only — Flatpak, Snap, AppImage, AUR, and Nix are different bets.</span></li>
-      <li>{% include icons/x.svg.html class="ico-no" %}<span>Host your repository. You bring the storage — an S3 bucket or a local filesystem path — the trade-off is no vendor lock-in and your packages live in storage you control.</span></li>
-      <li>{% include icons/x.svg.html class="ico-no" %}<span>Sandbox installed software. Packages run with the same privileges any <code>apt install</code> package gets — there's no Flatpak-style isolation unless you ship it as part of your package (e.g. an AppArmor / SELinux profile, or a <code>bwrap</code> / <code>firejail</code> wrapper around your binary).</span></li>
+      <li>{% include icons/x.svg.html class="ico-no" %}<span>Host your repository. You bring the storage — an S3 bucket or a local filesystem path — and in return get no vendor lock-in, with your packages in storage you control.</span></li>
+      <li>{% include icons/x.svg.html class="ico-no" %}<span>Sandbox installed software. Packages run with the same privileges any <code>apt install</code> package gets — no Flatpak-style isolation unless you ship it yourself (e.g. an AppArmor / SELinux profile, or a <code>bwrap</code> / <code>firejail</code> wrapper around your binary).</span></li>
     </ul>
   </section>
 
