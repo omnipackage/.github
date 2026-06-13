@@ -22,7 +22,7 @@ title: OmniPackage
 tagline: Linux packaging made easy
 description: >-
   OmniPackage is an open source tool for building and distributing your own
-  RPM and DEB packages for Linux. Build for many distros using native package
+  native Linux packages. Build for many distros using native package
   managers, sign with GPG, and host your own repository on any S3-compatible
   storage or your local filesystem. Runs in CI, on your laptop, or anywhere else.
 url: "https://omnipackage.org"
