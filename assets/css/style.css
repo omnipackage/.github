@@ -318,6 +318,7 @@ details[open] summary::before { content: "\2304  "; }
 .footer-col h3::before { content: "# "; color: var(--accent); }
 .footer-col a { display: block; color: var(--muted); font-size: 0.95rem; padding: 0.2rem 0; }
 .footer-col a:hover { color: var(--accent); text-decoration: none; }
+.footer-col a svg { margin-right: 0.4rem; }
 .footer-brand { opacity: 0.95; }
 
 /* ---------- Error page ---------- */
