@@ -33,9 +33,13 @@ github_repo: "omnipackage/omnipackage-rs"
 producthunt_url: "https://www.producthunt.com/products/omnipackage"
 getting_started_url: "https://docs.omnipackage.org/getting_started/"
 install_stable_url: "https://repositories.omnipackage.org/omnipackage-rs/stable/install.html"
+install_stable_aarch64_url: "https://repositories.omnipackage.org/omnipackage-rs/stable-aarch64/install.html"
 install_master_url: "https://repositories.omnipackage.org/omnipackage-rs/master/install.html"
+install_master_aarch64_url: "https://repositories.omnipackage.org/omnipackage-rs/master-aarch64/install.html"
 repo_badge_stable_url: "https://repositories.omnipackage.org/omnipackage-rs/stable/badge.svg"
+repo_badge_stable_aarch64_url: "https://repositories.omnipackage.org/omnipackage-rs/stable-aarch64/badge.svg"
 repo_badge_master_url: "https://repositories.omnipackage.org/omnipackage-rs/master/badge.svg"
+repo_badge_master_aarch64_url: "https://repositories.omnipackage.org/omnipackage-rs/master-aarch64/badge.svg"
 license: "GPL-3.0"
 locale: en_US
 author: Oleg Antonyan

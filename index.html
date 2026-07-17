@@ -62,7 +62,7 @@ json_ld: >-
         "name": "What architectures does OmniPackage support?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Packages are built for the host's architecture. All supported base images except Mageia are multiarch, so both x86_64 and ARM64 work — run OmniPackage on the architecture you want the packages to target."
+          "text": "Packages are built for the host's architecture. All supported base images except Arch Linux are multiarch, so both x86_64 and ARM64 work — run OmniPackage on the architecture you want the packages to target."
         }
       },
       {
@@ -126,8 +126,14 @@ json_ld: >-
   <a href="{{ site.install_stable_url }}" target="_blank" rel="noopener">
     <img src="{{ site.repo_badge_stable_url }}" alt="Available via OmniPackage stable repository" loading="lazy" height="20">
   </a>
+  <a href="{{ site.install_stable_aarch64_url }}" target="_blank" rel="noopener">
+    <img src="{{ site.repo_badge_stable_aarch64_url }}" alt="Available via OmniPackage stable aarch64 repository" loading="lazy" height="20">
+  </a>
   <a href="{{ site.install_master_url }}" target="_blank" rel="noopener">
     <img src="{{ site.repo_badge_master_url }}" alt="Available via OmniPackage master (unstable) repository" loading="lazy" height="20">
+  </a>
+  <a href="{{ site.install_master_aarch64_url }}" target="_blank" rel="noopener">
+    <img src="{{ site.repo_badge_master_aarch64_url }}" alt="Available via OmniPackage master (unstable) aarch64 repository" loading="lazy" height="20">
   </a>
 </p>
 
@@ -181,7 +187,7 @@ sudo apt-get install omnipackage</code></pre>
 
   <section aria-labelledby="supported-distros-heading">
     <h2 id="supported-distros-heading">Supported distros</h2>
-    <p class="muted">Packages are built for the build host's architecture. All supported base images except Mageia are multiarch, so both <code>x86_64</code> and <code>ARM64</code> work.</p>
+    <p class="muted">Packages are built for the build host's architecture. All supported base images except Arch Linux are multiarch, so both <code>x86_64</code> and <code>ARM64</code> work.</p>
 
     <div id="supported-distros">
       <p class="muted"><span class="spinner" role="status" aria-hidden="true"></span>Loading supported distros…</p>
@@ -232,7 +238,7 @@ sudo apt-get install omnipackage</code></pre>
       Snap and Flatpak ship their own runtimes; AppImage bundles dependencies. OmniPackage builds native Linux packages so users install with <code>apt</code>, <code>dnf</code>, <code>zypper</code>, or <code>pacman</code> — no extra runtime, no sandbox, no separate installer. Updates arrive through the system package manager alongside everything else.</p>
 
       <p><strong>What architectures does OmniPackage support?</strong><br>
-      Packages are built for the host's architecture. All supported base images except Mageia are multiarch, so both <code>x86_64</code> and <code>ARM64</code> work — run OmniPackage on the architecture you want the packages to target.</p>
+      Packages are built for the host's architecture. All supported base images except Arch Linux are multiarch, so both <code>x86_64</code> and <code>ARM64</code> work — run OmniPackage on the architecture you want the packages to target.</p>
 
       <p><strong>Can I host the apt or yum repository on AWS, Cloudflare R2, or MinIO?</strong><br>
       Yes. OmniPackage publishes to any S3-compatible storage or a local filesystem path. Cloudflare R2 is recommended for free egress; AWS S3 and MinIO also work, as does any other S3-compatible service. The bucket (or local directory) serves as a self-hosted apt, dnf, zypper, or pacman repository.</p>
