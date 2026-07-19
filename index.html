@@ -3,7 +3,7 @@ layout: default
 title: Build native Linux packages and host your own repository
 description: >-
   OmniPackage is an open-source CLI that builds native Linux packages and
-  hosts your own apt, dnf, zypper, and pacman repository on any S3-compatible storage or your local filesystem.
+  hosts your own apt, dnf, zypper, and pacman repository on any S3-compatible storage or local filesystem.
 json_ld: >-
   {
     "@type": "HowTo",
@@ -20,13 +20,13 @@ json_ld: >-
         "@type": "HowToStep",
         "position": 2,
         "name": "Release",
-        "text": "Point OmniPackage at an S3-compatible bucket or a local filesystem path, set a few config options, then run omnipackage release. Each package is built in a container running its target distro, so its dependencies resolve as that distro's native packages — guaranteed solved, with no version skew or bundled runtimes. Packages are signed with your GPG key and published to your repository."
+        "text": "Point OmniPackage at an S3-compatible bucket or a local path, set a few config options, then run omnipackage release. Each package is built in a container running its target distro, so its dependencies resolve as that distro's native packages. Packages are signed with your GPG key and published to your repository."
       },
       {
         "@type": "HowToStep",
         "position": 3,
         "name": "Share",
-        "text": "Share the install page generated alongside the packages so your users can add the repository and install your software with apt, dnf, zypper, or pacman."
+        "text": "Share the install page generated with the packages so users can add the repository and install with apt, dnf, zypper, or pacman."
       }
     ]
   },
@@ -38,7 +38,7 @@ json_ld: >-
         "name": "Does OmniPackage require Docker?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Podman works too and is recommended — it is the most-tested runtime. Docker is supported as well. Either is auto-detected; you can force one with the --container-runtime flag."
+          "text": "No. Podman also works and is recommended as the most-tested runtime. Docker works too. Either is auto-detected; force one with the --container-runtime flag."
         }
       },
       {
@@ -54,7 +54,7 @@ json_ld: >-
         "name": "How is OmniPackage different from Snap, Flatpak, or AppImage?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Snap and Flatpak ship their own runtimes; AppImage bundles dependencies. OmniPackage builds native Linux packages so users install with apt, dnf, zypper, or pacman — no extra runtime, no sandbox, no separate installer. Updates arrive through the system package manager alongside everything else."
+          "text": "Snap and Flatpak ship their own runtimes; AppImage bundles dependencies. OmniPackage builds native packages, so users install with apt, dnf, zypper, or pacman — no extra runtime, sandbox, or installer. Updates come through the system package manager like everything else."
         }
       },
       {
@@ -62,7 +62,7 @@ json_ld: >-
         "name": "What architectures does OmniPackage support?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Packages are built for the host's architecture. All supported base images except Arch Linux are multiarch, so both x86_64 and ARM64 work — run OmniPackage on the architecture you want the packages to target."
+          "text": "Packages are built for the host's architecture. All base images except Arch Linux are multiarch, so both x86_64 and ARM64 work. Run OmniPackage on the architecture you want to target."
         }
       },
       {
@@ -70,7 +70,7 @@ json_ld: >-
         "name": "Can I host the apt or yum repository on AWS, Cloudflare R2, or MinIO?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. OmniPackage publishes to any S3-compatible storage or a local filesystem path. Cloudflare R2 is recommended for free egress; AWS S3 and MinIO also work, as does any other S3-compatible service. The bucket (or local directory) serves as a self-hosted apt, dnf, zypper, or pacman repository."
+          "text": "Yes. OmniPackage publishes to any S3-compatible storage or a local path. Cloudflare R2 is recommended for free egress; AWS S3, MinIO, and any other S3-compatible service also work. The bucket (or local directory) serves as a self-hosted apt, dnf, zypper, or pacman repository."
         }
       },
       {
@@ -98,11 +98,11 @@ json_ld: >-
 <span class="term-comment"># install page generated — share the link, your users are done</span></pre>
   </div>
 
-  <h1>Build and distribute your own native Linux packages — with your own repository</h1>
+  <h1>Build and distribute native Linux packages from your own repository</h1>
 
   <p class="lead">We had centralized software repositories long before the App Store. Why is distributing software for Linux still so hard? OmniPackage makes it easy.</p>
 
-  <p class="lead">Build native Linux packages for many distros and publish them to a self-hosted apt, dnf, zypper, or pacman repository on any S3-compatible storage or local filesystem. Runs on GitHub Actions, your laptop, or anywhere.</p>
+  <p class="lead">Build native Linux packages for many distros and publish them to a self-hosted apt, dnf, zypper, or pacman repository on any S3-compatible storage or local filesystem. Runs on GitHub Actions or your laptop.</p>
 
   <div class="cta-group">
     <a href="{{ site.getting_started_url }}" target="_blank" class="btn btn-lg btn-primary">Get started</a>
@@ -139,7 +139,7 @@ json_ld: >-
 
 <div class="content">
   <p class="lead">
-    OmniPackage is an open-source CLI that builds native Linux packages and publishes them to your own apt, dnf, zypper, or pacman repository on S3-compatible storage or a local filesystem. It scaffolds an RPM spec file, the DEB equivalents, and a PKGBUILD, then runs <code>rpmbuild</code>, <code>dpkg-buildpackage</code>, and <code>makepkg</code> in containers for each supported distro. Because each container runs that distro, your software is built against the distro's own libraries and its dependencies are declared as native packages — so the system package manager resolves them automatically. Packages are signed with your GPG key and uploaded to your bucket or directory, which serves as the repository. It also generates an install page — share the link, and your users are done.
+    OmniPackage is an open-source CLI that builds native Linux packages and publishes them to your own apt, dnf, zypper, or pacman repository on S3-compatible storage or a local filesystem. It scaffolds an RPM spec file, the DEB equivalents, and a PKGBUILD, then runs <code>rpmbuild</code>, <code>dpkg-buildpackage</code>, and <code>makepkg</code> in containers, one per distro. Each container runs that distro, so your software builds against the distro's own libraries and its dependencies become native packages the system package manager resolves on its own. Packages are signed with your GPG key and uploaded to your bucket or directory, which serves as the repository. It also generates an install page: share the link and your users install with one command.
   </p>
 
   <p class="muted" style="margin-bottom:.5rem;">One command to build, sign, and publish your packages:</p>
@@ -156,11 +156,11 @@ json_ld: >-
     <ol class="steps grid grid-3">
       <li>
         <h3><span class="step-num">01</span>Scaffold</h3>
-        <p class="muted mb-0">OmniPackage scaffolds an RPM spec file and the other files RPM, DEB, and pacman packaging need.</p>
+        <p class="muted mb-0">OmniPackage scaffolds an RPM spec file and the other files that RPM, DEB, and pacman packaging need.</p>
       </li>
       <li>
         <h3><span class="step-num">02</span>Release</h3>
-        <p class="muted mb-0">Add your storage details — an S3-compatible bucket or a local filesystem path — and a few config options, then run <code>omnipackage release</code>. Each package is built in a container running its target distro, so it links against that distro's own libraries and its dependencies resolve as native packages — guaranteed solved, with no version skew or bundled runtimes. Packages are signed with your GPG key and published to your repository.</p>
+        <p class="muted mb-0">Add your storage details — an S3-compatible bucket or a local path — and a few config options, then run <code>omnipackage release</code>. Each package is built in a container running its target distro, so it links against that distro's own libraries and its dependencies resolve as native packages. Packages are signed with your GPG key and published to your repository.</p>
       </li>
       <li>
         <h3><span class="step-num">03</span>Share</h3>
@@ -182,12 +182,12 @@ curl -fsSL https://repositories.omnipackage.org/omnipackage-rs/stable/ubuntu_26.
 sudo apt-get update
 sudo apt-get install omnipackage</code></pre>
     </div>
-    <p class="muted">Users do this once. After that, updates arrive through <code>apt upgrade</code> alongside everything else from the official Ubuntu repos — no extra steps, no separate updater. The same applies on Debian, Fedora, openSUSE, Arch, and the other supported distros, each through its native package manager.</p>
+    <p class="muted">Users do this once. After that, updates arrive through <code>apt upgrade</code> with everything else from the official Ubuntu repos — no extra steps, no separate updater. The same works on Debian, Fedora, openSUSE, Arch, and the other supported distros, each through its native package manager.</p>
   </section>
 
   <section aria-labelledby="supported-distros-heading">
     <h2 id="supported-distros-heading">Supported distros</h2>
-    <p class="muted">Packages are built for the build host's architecture. All supported base images except Arch Linux are multiarch, so both <code>x86_64</code> and <code>ARM64</code> work.</p>
+    <p class="muted">Packages are built for the build host's architecture. All base images except Arch Linux are multiarch, so both <code>x86_64</code> and <code>ARM64</code> work.</p>
 
     <div id="supported-distros">
       <p class="muted"><span class="spinner" role="status" aria-hidden="true"></span>Loading supported distros…</p>
@@ -211,8 +211,8 @@ sudo apt-get install omnipackage</code></pre>
   <section aria-labelledby="not-do">
     <h2 id="not-do">What OmniPackage doesn't do</h2>
     <ul class="feature-list">
-      <li>{% include icons/x.svg.html class="ico-no" %}<span>Build new package formats. RPM, DEB, and pacman only — Flatpak, Snap, AppImage, AUR, and Nix are different bets.</span></li>
-      <li>{% include icons/x.svg.html class="ico-no" %}<span>Host your repository. You bring the storage — an S3 bucket or a local filesystem path — and in return get no vendor lock-in, with your packages in storage you control.</span></li>
+      <li>{% include icons/x.svg.html class="ico-no" %}<span>Build new package formats. RPM, DEB, and pacman only — Flatpak, Snap, AppImage, AUR, and Nix are different approaches.</span></li>
+      <li>{% include icons/x.svg.html class="ico-no" %}<span>Host your repository. You bring the storage — an S3 bucket or a local path — so there's no vendor lock-in and your packages stay in storage you control.</span></li>
       <li>{% include icons/x.svg.html class="ico-no" %}<span>Sandbox installed software. Packages run with the same privileges any <code>apt install</code> package gets — no Flatpak-style isolation unless you ship it yourself (e.g. an AppArmor / SELinux profile, or a <code>bwrap</code> / <code>firejail</code> wrapper around your binary).</span></li>
     </ul>
   </section>
@@ -229,19 +229,19 @@ sudo apt-get install omnipackage</code></pre>
     <summary>Frequently asked questions</summary>
     <div class="faq">
       <p><strong>Does OmniPackage require Docker?</strong><br>
-      No. Podman works too and is recommended — it is the most-tested runtime. Docker is supported as well. Either is auto-detected; you can force one with the <code>--container-runtime</code> flag.</p>
+      No. Podman also works and is recommended as the most-tested runtime. Docker works too. Either is auto-detected; force one with the <code>--container-runtime</code> flag.</p>
 
       <p><strong>Can I distribute proprietary software with OmniPackage?</strong><br>
       Yes. Unlike official distro repositories, your own OmniPackage repository can host any binaries you want, including closed-source ones.</p>
 
       <p><strong>How is OmniPackage different from Snap, Flatpak, or AppImage?</strong><br>
-      Snap and Flatpak ship their own runtimes; AppImage bundles dependencies. OmniPackage builds native Linux packages so users install with <code>apt</code>, <code>dnf</code>, <code>zypper</code>, or <code>pacman</code> — no extra runtime, no sandbox, no separate installer. Updates arrive through the system package manager alongside everything else.</p>
+      Snap and Flatpak ship their own runtimes; AppImage bundles dependencies. OmniPackage builds native packages, so users install with <code>apt</code>, <code>dnf</code>, <code>zypper</code>, or <code>pacman</code> — no extra runtime, sandbox, or installer. Updates come through the system package manager like everything else.</p>
 
       <p><strong>What architectures does OmniPackage support?</strong><br>
-      Packages are built for the host's architecture. All supported base images except Arch Linux are multiarch, so both <code>x86_64</code> and <code>ARM64</code> work — run OmniPackage on the architecture you want the packages to target.</p>
+      Packages are built for the host's architecture. All base images except Arch Linux are multiarch, so both <code>x86_64</code> and <code>ARM64</code> work. Run OmniPackage on the architecture you want to target.</p>
 
       <p><strong>Can I host the apt or yum repository on AWS, Cloudflare R2, or MinIO?</strong><br>
-      Yes. OmniPackage publishes to any S3-compatible storage or a local filesystem path. Cloudflare R2 is recommended for free egress; AWS S3 and MinIO also work, as does any other S3-compatible service. The bucket (or local directory) serves as a self-hosted apt, dnf, zypper, or pacman repository.</p>
+      Yes. OmniPackage publishes to any S3-compatible storage or a local path. Cloudflare R2 is recommended for free egress; AWS S3, MinIO, and any other S3-compatible service also work. The bucket (or local directory) serves as a self-hosted apt, dnf, zypper, or pacman repository.</p>
 
       <p><strong>Is OmniPackage free?</strong><br>
       Yes. OmniPackage is free and open-source software, licensed under GPL-3.0.</p>

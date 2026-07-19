@@ -14,11 +14,11 @@ description: >-
 
 <p class="lead">OmniPackage is an open source project. This site doesn't collect, store, or share any personal information about you.</p>
 
-<p>There are no accounts, no forms, no cookies, and no analytics. Nothing runs on a server we control that tries to identify you — the whole site is a set of static files served by <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> and proxied through <a href="https://www.cloudflare.com/" target="_blank" rel="noopener">Cloudflare</a>. The Cloudflare layer isn't there for analytics — it's a side effect of using a custom domain, which Cloudflare R2 requires in order to serve a public bucket (the bucket hosts the OmniPackage repositories).</p>
+<p>There are no accounts, forms, cookies, or analytics. Nothing on a server we control tries to identify you — the whole site is static files served by <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> and proxied through <a href="https://www.cloudflare.com/" target="_blank" rel="noopener">Cloudflare</a>. The Cloudflare layer isn't for analytics; it's a side effect of using a custom domain, which Cloudflare R2 needs to serve a public bucket (the bucket hosts the OmniPackage repositories).</p>
 
 <h2>What your browser does talk to</h2>
 
-<p>To be precise, a few third parties see your requests simply because your browser loads assets from them:</p>
+<p>A few third parties see your requests because your browser loads assets from them:</p>
 
 <ul>
   <li><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Pages</a> hosts this site and logs request metadata (including IP addresses) for abuse prevention, as described in GitHub's privacy statement.</li>
@@ -28,12 +28,12 @@ description: >-
   <li><a href="https://shields.io" target="_blank" rel="noopener">shields.io</a> renders the project status badges (license, CI, GitHub stars).</li>
 </ul>
 
-<p>We don't receive or aggregate any of that data ourselves. If you're privacy-conscious, blocking third-party requests at the browser level won't break anything important here — the text and layout come from the same origin as the page.</p>
+<p>We don't receive or aggregate any of that data. If you block third-party requests in your browser, nothing important here breaks — the text and layout come from the same origin as the page.</p>
 
 <h2>The OmniPackage tool itself</h2>
 
-<p>The <a href="{{ site.github_repo_url }}" target="_blank" rel="noopener">OmniPackage</a> CLI runs locally on your machine. It doesn't phone home, doesn't report usage, and doesn't require registration. The only network call it makes is to the S3-compatible storage <em>you</em> configure — and if you publish to a local filesystem, it makes none at all.</p>
+<p>The <a href="{{ site.github_repo_url }}" target="_blank" rel="noopener">OmniPackage</a> CLI runs locally on your machine. It doesn't phone home, report usage, or require registration. The only network call it makes is to the S3-compatible storage <em>you</em> configure — and if you publish to a local filesystem, none at all.</p>
 
 <h2>Changes</h2>
 
-<p>If this ever changes, the update will land in this page's <a href="https://github.com/omnipackage/.github/commits/master/pages/privacy.html" target="_blank" rel="noopener">git history</a> — which is probably the most honest changelog a privacy policy can have.</p>
+<p>If this ever changes, the update will land in this page's <a href="https://github.com/omnipackage/.github/commits/master/pages/privacy.html" target="_blank" rel="noopener">git history</a>.</p>
