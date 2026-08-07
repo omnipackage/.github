@@ -31,7 +31,7 @@ openSUSE (Leap and Tumbleweed), Fedora (including Rawhide), Debian (stable, test
 ## Inspiration and related projects
 
 - [openSUSE Build Service](https://build.opensuse.org/) — direct inspiration
-- Flatpak, Snap — sandboxed runtimes that sidestep distro ABI differences by shipping their own runtime
+- Flatpak, Snap — sandboxed runtimes that bypass distro ABI differences
 - AppImage — single-file distribution via static-ish linkage
 - AUR — Arch Linux user-contributed build recipes
 - Nix — different paradigm, single distro
