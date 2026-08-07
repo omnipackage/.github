@@ -7,18 +7,17 @@ sitemap: false
 
 > {{ site.description | strip_newlines }}
 
-OmniPackage is an open source CLI tool that helps independent developers build native Linux packages for many Linux distributions and host their own software repositories on any S3-compatible storage or a local filesystem. End users install with apt, dnf, zypper, or pacman — the native package manager — exactly like installing software from official distro repositories. There are no subscriptions, accounts, or vendor lock-in.
+OmniPackage is an open source CLI that builds native Linux packages for many distros and publishes them to a repository you host yourself, on any S3-compatible storage or a local directory. End users install with apt, dnf, zypper, or pacman, exactly as they would from an official distro repository. No subscriptions, no accounts, no vendor lock-in.
 
 ## How it works
 
 1. **Scaffold** — `omnipackage` generates an RPM spec file, the equivalent files for DEB packaging, and a PKGBUILD for pacman.
-2. **Release** — `omnipackage release` builds packages for each target distro inside a container (`rpmbuild`, `dpkg-buildpackage`, or `makepkg`), signs them with your GPG key, and publishes them to an S3 bucket or a local filesystem path. That storage serves as the repository.
-3. **Share** — alongside the packages, OmniPackage generates an install page with copy-paste commands. Users run those once to add the repository, then receive updates through their normal package manager.
+2. **Release** — `omnipackage release` builds packages for each target distro inside a container (`rpmbuild`, `dpkg-buildpackage`, or `makepkg`), signs them with your GPG key, and publishes them to an S3 bucket or a local directory. That storage is the repository.
+3. **Share** — OmniPackage also generates an install page with copy-paste commands. Users run those once to add the repository, then get updates through their normal package manager.
 
 ## Supported distros
 
-OmniPackage supports the following distro families: openSUSE (Leap and Tumbleweed), Fedora (including Rawhide), Debian (stable, testing, unstable), Ubuntu (LTS and current), Mageia, AlmaLinux, Rocky Linux, Arch Linux, and Manjaro. The authoritative, always-current list with image tags lives at [`distros.yml`]({{ site.github_repo_url }}/blob/master/src/distros.yml) in the source repo.
-
+openSUSE (Leap and Tumbleweed), Fedora (including Rawhide), Debian (stable, testing, unstable), Ubuntu (LTS and current), Mageia, AlmaLinux, Rocky Linux, Arch Linux, and Manjaro. The authoritative, always-current list with image tags lives in [`distros.yml`]({{ site.github_repo_url }}/blob/master/src/distros.yml) in the source repo.
 
 ## Links
 
@@ -32,11 +31,11 @@ OmniPackage supports the following distro families: openSUSE (Leap and Tumblewee
 ## Inspiration and related projects
 
 - [openSUSE Build Service](https://build.opensuse.org/) — direct inspiration
-- Flatpak, Snap — sandboxed runtimes that bypass distro ABI differences with their own runtime
+- Flatpak, Snap — sandboxed runtimes that sidestep distro ABI differences by shipping their own runtime
 - AppImage — single-file distribution via static-ish linkage
 - AUR — Arch Linux user-contributed build recipes
-- Nix — different paradigm, single-distro
+- Nix — different paradigm, single distro
 
 ## License
 
-Open source. See the [license file]({{ site.github_repo_url }}/blob/master/LICENSE).
+Open source under GPL-3.0. See the [license file]({{ site.github_repo_url }}/blob/master/LICENSE).

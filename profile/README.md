@@ -1,6 +1,6 @@
-# We had centralized software repositories long before AppStore. Why is distributing software for Linux still so hard?
+# We had centralized software repositories long before the App Store. Why is distributing software for Linux still so hard?
 
-OmniPackage combines CI with repositories and set of tools to simplify the process of creating and distributing your own native Linux packages for many distros easily using native package managers
+OmniPackage is an open source CLI that builds native Linux packages for many distros and publishes them to a repository you host yourself. Your users install and update with apt, dnf, zypper, or pacman.
 
 [Homepage](https://omnipackage.org)
 
