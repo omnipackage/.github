@@ -7,35 +7,45 @@ sitemap: false
 
 > {{ site.description | strip_newlines }}
 
-OmniPackage is an open source CLI that builds native Linux packages for many distros and publishes them to a repository you host yourself, on any S3-compatible storage or a local directory. End users install with apt, dnf, zypper, or pacman, exactly as they would from an official distro repository. No subscriptions, no accounts, no vendor lock-in.
+OmniPackage is an open source command-line tool. It builds RPM, DEB, and pacman packages for many Linux distros and uploads them to a repository you host yourself, in S3-compatible storage or a local directory. Users install your software with apt, dnf, zypper, or pacman, the same way they install packages from their distro. You do not need an account or a subscription.
 
 ## How it works
 
-1. **Scaffold** — `omnipackage` generates an RPM spec file, the equivalent files for DEB packaging, and a PKGBUILD for pacman.
-2. **Release** — `omnipackage release` builds packages for each target distro inside a container (`rpmbuild`, `dpkg-buildpackage`, or `makepkg`), signs them with your GPG key, and publishes them to an S3 bucket or a local directory. That storage is the repository.
-3. **Share** — OmniPackage also generates an install page with copy-paste commands. Users run those once to add the repository, then get updates through their normal package manager.
+1. Set up: `omnipackage init` creates the files needed to build RPM, DEB, and pacman packages.
+2. Release: `omnipackage release` builds each package in a container with the target distro (`rpmbuild`, `dpkg-buildpackage`, or `makepkg`), so the package uses that distro's own libraries. It signs the packages with your GPG key and uploads them to your S3 bucket or local directory. That storage is the repository.
+3. Share: OmniPackage also creates an install page with commands to copy. Users run them once to add the repository, then get updates with their usual package manager.
 
 ## Supported distros
 
-openSUSE (Leap and Tumbleweed), Fedora (including Rawhide), Debian (stable, testing, unstable), Ubuntu (LTS and current), Mageia, AlmaLinux, Rocky Linux, Arch Linux, and Manjaro. The authoritative, always-current list with image tags lives in [`distros.yml`]({{ site.github_repo_url }}/blob/master/src/distros.yml) in the source repo.
+openSUSE (Leap and Tumbleweed), Fedora (including Rawhide), Debian (stable, testing, unstable), Ubuntu, Mageia, AlmaLinux, Rocky Linux, Arch Linux, and Manjaro. The full, current list is in [`distros.yml`]({{ site.github_repo_url }}/blob/master/src/distros.yml) in the source repository.
+
+Packages are built for the CPU architecture of the build machine, x86_64 or ARM64. Arch Linux supports only x86_64, and Manjaro no longer updates its ARM repositories.
+
+## Key facts
+
+- Docker is not required. OmniPackage works with Podman or Docker and uses Podman if both are installed. Use `--container-runtime` to choose one.
+- Your repository can store closed-source packages.
+- Any S3-compatible storage works, for example AWS S3, Cloudflare R2, or MinIO. Cloudflare R2 is recommended because it is the most tested and has no fees for download traffic.
+- OmniPackage does not build Flatpak, Snap, AppImage, or Nix packages, and does not publish to AUR.
+- OmniPackage does not sandbox apps. Packages get the same permissions as any other system package.
 
 ## Links
 
-- [Home]({{ site.url }}/): overview and supported distros
-- [About]({{ site.url }}/about): why distributing software for Linux is hard, comparison with Flatpak / Snap / AppImage / AUR / Nix
-- [Documentation]({{ site.docs_url }}): installation, configuration, CLI reference
-- [Getting started]({{ site.getting_started_url }}): step-by-step quickstart
+- [Home]({{ site.url }}/): overview, supported distros, and FAQ
+- [About]({{ site.url }}/about): why shipping software for Linux is hard, and how OmniPackage compares with Flatpak, Snap, AppImage, AUR, and Nix
+- [Documentation]({{ site.docs_url }}): installation, configuration, and CLI reference
+- [Getting started]({{ site.getting_started_url }}): step-by-step guide
 - [Source code]({{ site.github_repo_url }}): GitHub repository (omnipackage-rs)
 - [Privacy]({{ site.url }}/privacy): no analytics, no cookies, no tracking
 
 ## Inspiration and related projects
 
-- [openSUSE Build Service](https://build.opensuse.org/) — direct inspiration
-- Flatpak, Snap — sandboxed runtimes that bypass distro ABI differences
-- AppImage — single-file distribution via static-ish linkage
-- AUR — Arch Linux user-contributed build recipes
-- Nix — different paradigm, single distro
+- [openSUSE Build Service](https://build.opensuse.org/): the main inspiration
+- Flatpak and Snap: ship their own runtimes, so apps do not depend on distro libraries
+- AppImage: one file that includes all dependencies
+- AUR: build recipes shared by Arch Linux users
+- Nix: a different approach to packaging
 
 ## License
 
-Open source under GPL-3.0. See the [license file]({{ site.github_repo_url }}/blob/master/LICENSE).
+Free and open source under GPL-3.0. See the [license file]({{ site.github_repo_url }}/blob/master/LICENSE).

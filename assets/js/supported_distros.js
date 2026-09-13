@@ -48,7 +48,7 @@
       html.push('</div></div>');
     }
     html.push('</div>');
-    html.push('<p class="muted small" style="margin-top:1rem;margin-bottom:0;">' + distros.length + ' distros across ' + groups.size + ' families.</p>');
+    html.push('<p class="muted small" style="margin-top:1rem;margin-bottom:0;">' + distros.length + ' distros in ' + groups.size + ' families.</p>');
     container.innerHTML = html.join('');
   } catch (err) {
     container.innerHTML = '<p class="muted">Could not load the distro list. See <a href="https://github.com/omnipackage/omnipackage-rs/blob/master/src/distros.yml" target="_blank">distros.yml</a> on GitHub.</p>';
